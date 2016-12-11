@@ -2,7 +2,7 @@ package com.kumanoit.crackingTheCodingInterview;
 
 import com.kumanoit.trees.Constants;
 import com.kumanoit.trees.Tree;
-import com.kumanoit.trees.Utils;
+import com.kumanoit.trees.TreeUtils;
 
 public class Main {
 
@@ -14,12 +14,12 @@ public class Main {
 	private static Tree bstRoot;
 
 	static {
-		root1 = Utils.createTree(Constants.array1);
-		root2 = Utils.createTree(Constants.array2);
-		root3 = Utils.createTree(Constants.array3);
-		root4 = Utils.createTree(Constants.array4);
-		root5 = Utils.createTree(Constants.array5);
-		bstRoot = Utils.createTree(Constants.bstArray);
+		root1 = TreeUtils.createTree(Constants.array1);
+		root2 = TreeUtils.createTree(Constants.array2);
+		root3 = TreeUtils.createTree(Constants.array3);
+		root4 = TreeUtils.createTree(Constants.array4);
+		root5 = TreeUtils.createTree(Constants.array5);
+		bstRoot = TreeUtils.createTree(Constants.bstArray);
 	}
 
 	public static void testCreateBalancedBstFromArray() {

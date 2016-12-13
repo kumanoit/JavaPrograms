@@ -9,8 +9,11 @@ package com.kumanoit.trees;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 
 public class Miscellaneous {
@@ -312,8 +315,8 @@ public class Miscellaneous {
 		root.setRightChild(leftSubTree);
 	}
 
+	// print maximum from root to leaf
 	private static int maxSum = 0;
-
 	public static int getMaxSumFromRootToLeaf(Tree root) {
 		maxSum = 0;
 		getMaxSumFromRootToLeaf(root, 0);
@@ -328,5 +331,56 @@ public class Miscellaneous {
 		sum += root.getData();
 		getMaxSumFromRootToLeaf(root.getLeftChild(), sum);
 		getMaxSumFromRootToLeaf(root.getRightChild(), sum);
+	}
+
+	// level order sum
+	public static void printSumLevelWise(Tree root) {
+		System.out.println("Using hashmap");
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		printSumLevelWise(root, 0, map);
+		for (Entry<Integer, Integer> entry : map.entrySet()) {
+			System.out.println("The sum of nodes at level = " + entry.getKey() + ", " + entry.getValue());
+		}
+		System.out.println("Using queue");
+		printSumUsingQueue(root);
+	}
+	
+	private static void printSumLevelWise(Tree root, int level, Map<Integer, Integer> sumMap) {
+		if (root == null) {
+			return;
+		}
+		if (sumMap.keySet().contains(level)) {
+			sumMap.put(level, sumMap.get(level) + root.getData());
+		} else {
+			sumMap.put(level, root.getData());
+		}
+		printSumLevelWise(root.getLeftChild(), level + 1, sumMap);
+		printSumLevelWise(root.getRightChild(), level + 1, sumMap);
+	}
+
+	private static void printSumUsingQueue(Tree root) {
+		if(root == null) {
+			return;
+		}
+		int level = 0;
+		int sum = 0;
+		Queue<Tree> queue = new LinkedList<Tree>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			sum = 0;
+			int totalSizeOfQueue = queue.size();
+			while (totalSizeOfQueue > 0) {
+				Tree ptr = queue.remove();
+				if (ptr.getLeftChild() != null) {
+					queue.add(ptr.getLeftChild());
+				}
+				if (ptr.getRightChild() != null) {
+					queue.add(ptr.getRightChild());
+				}
+				sum += ptr.getData();
+				totalSizeOfQueue--;
+			}
+			System.out.println("The sum at level = " + ++level + " is = " + sum);
+		}
 	}
 }

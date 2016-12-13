@@ -125,8 +125,13 @@ public class TreeMain {
 		TreeView.printBottomViewOfTree(bstRoot);
 	}
 
+	public static void testPrintSumLevelWise() {
+		Miscellaneous.printSumLevelWise(root1);
+		Miscellaneous.printSumLevelWise(bstRoot);
+	}
+
 	public static void main(String[] args) {
-		testPrintBottomView();
+		testPrintSumLevelWise();
 	}
 
 }

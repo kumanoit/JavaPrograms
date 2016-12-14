@@ -8,8 +8,10 @@ public class Main {
 
 	private static Tree root1;
 	private static Tree root2;
-	private static Tree root3; // superTree of root1 contains root1 in left subtree
-	private static Tree root4; // superTree of root1 contains root1 in right subtree
+	private static Tree root3;
+	// superTree of root1 contains root1 in left subtree
+	private static Tree root4;
+	// superTree of root1 contains root1 in right subtree
 	private static Tree root5; // unbalanced tree
 	private static Tree bstRoot;
 
@@ -39,16 +41,16 @@ public class Main {
 	}
 
 	public static void testLeastCommonAncestors() {
-		//when both nodes are present in same path value1 is parent of value2 : 8
+		// when both nodes are present in same path value1 is parent of value2 : 8
 		System.out.println(TreesGraphs.getLeastCommonAncestor(root5, 8, 13).getData());
 
-		//when both nodes are present in same path value2 is parent of value1 : 4
+		// when both nodes are present in same path value2 is parent of value1 : 4
 		System.out.println(TreesGraphs.getLeastCommonAncestor(root5, 8, 4).getData());
 
-		//when both nodes are in different paths : 2
+		// when both nodes are in different paths : 2
 		System.out.println(TreesGraphs.getLeastCommonAncestor(root5, 8, 9).getData());
 
-		//when both nodes are in different sub-trees : 1
+		// when both nodes are in different sub-trees : 1
 		System.out.println(TreesGraphs.getLeastCommonAncestor(root5, 5, 11).getData());
 	}
 

@@ -43,9 +43,9 @@ public class TreesGraphs {
 	}
 
 	/**
-	 * 4.3 List of Depths: Given a binary tree, design an algorithm which
-	 * creates a linked list of all the nodes at each depth (e.g., if you have a
-	 * tree with depth D, you'll have D linked lists).
+	 * 4.3 List of Depths: Given a binary tree, design an algorithm which creates
+	 * a linked list of all the nodes at each depth (e.g., if you have a tree with
+	 * depth D, you'll have D linked lists).
 	 */
 
 	public static void createLinkedListOfNodesAtSameLevel(Tree root) {
@@ -74,8 +74,8 @@ public class TreesGraphs {
 
 	/**
 	 * 4.4 Check Balanced: Implement a function to check if a binary tree is
-	 * balanced. For the purposes of this question, a balanced tree is defined
-	 * to be a tree such that the heights of the two subtrees of any node never
+	 * balanced. For the purposes of this question, a balanced tree is defined to
+	 * be a tree such that the heights of the two subtrees of any node never
 	 * differ by more than one.
 	 */
 	public static boolean isBalanced(Tree root) {
@@ -161,11 +161,11 @@ public class TreesGraphs {
 	 * 
 	 * 4.7 Build Order: You are given a list of projects and a list of
 	 * dependencies (which is a list of pairs of projects, where the second
-	 * project is dependent on the first project). All of a project's
-	 * dependencies must be built before the project is. Find a build order that
-	 * will allow the projects to be built. If there is no valid build order,
-	 * return an error. EXAMPLE Input: projects: a, b, c, d, e, f dependencies:
-	 * (a, d), (f, b), (b, d), (f, a), (d, c) Output: f, e, a, b, d, c
+	 * project is dependent on the first project). All of a project's dependencies
+	 * must be built before the project is. Find a build order that will allow the
+	 * projects to be built. If there is no valid build order, return an error.
+	 * EXAMPLE Input: projects: a, b, c, d, e, f dependencies: (a, d), (f, b), (b,
+	 * d), (f, a), (d, c) Output: f, e, a, b, d, c
 	 */
 
 	public static void topologicalSort() {
@@ -261,10 +261,10 @@ public class TreesGraphs {
 
 	/**
 	 * 4.1 O Check Subtree: Tl and T2 are two very large binary trees, with Tl
-	 * much bigger than T2. Create an algorithm to determine if T2 is a subtree
-	 * of Tl. A tree T2 is a subtree of Tl if there exists a node n in Tl such
-	 * that the subtree of n is identical to T2. That is, if you cut off the
-	 * tree at node n, the two trees would be identical.
+	 * much bigger than T2. Create an algorithm to determine if T2 is a subtree of
+	 * Tl. A tree T2 is a subtree of Tl if there exists a node n in Tl such that
+	 * the subtree of n is identical to T2. That is, if you cut off the tree at
+	 * node n, the two trees would be identical.
 	 */
 	public static boolean isSubTree(Tree root1, Tree root2, int k) {
 		if (root1 == null) {
@@ -290,17 +290,16 @@ public class TreesGraphs {
 	/**
 	 * 4.11 Random Node: You are implementing a binary tree class from scratch
 	 * which, in addition to insert, find, and delete, has a method
-	 * getRandomNode() which returns a random node from the tree. All nodes
-	 * should be equally likely to be chosen. Design and implement an algorithm
-	 * for getRandomNode, and explain how you would implement the rest of the
-	 * methods.
+	 * getRandomNode() which returns a random node from the tree. All nodes should
+	 * be equally likely to be chosen. Design and implement an algorithm for
+	 * getRandomNode, and explain how you would implement the rest of the methods.
 	 */
 
 	/**
 	 * 4.12 Paths with Sum: You are given a binary tree in which each node
-	 * contains an integer value (which might be positive or negative). Design
-	 * an algorithm to count the number of paths that sum to a given value. The
-	 * path does not need to start or end at the root or a leaf, but it must go
+	 * contains an integer value (which might be positive or negative). Design an
+	 * algorithm to count the number of paths that sum to a given value. The path
+	 * does not need to start or end at the root or a leaf, but it must go
 	 * downwards (traveling only from parent nodes to child nodes).
 	 */
 	public static int getTotalNumberOfPathsWithKSum(Tree root, int k) {

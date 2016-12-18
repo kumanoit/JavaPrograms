@@ -4,7 +4,7 @@
  * Copyright © 2016 Amit Kumar. All rights reserved.
  * 
  */
-package com.kumanoit.crackingTheCodingInterview;
+package com.kumanoit.crackingTheCodingInterview.arraysStrings;
 
 public class ArraysStrings {
 

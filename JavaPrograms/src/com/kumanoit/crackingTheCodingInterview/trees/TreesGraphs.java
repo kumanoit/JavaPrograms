@@ -1,4 +1,4 @@
-package com.kumanoit.crackingTheCodingInterview;
+package com.kumanoit.crackingTheCodingInterview.trees;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +21,28 @@ public class TreesGraphs {
 	 * 4.1 Route Between Nodes: Given a directed graph, design an algorithm to
 	 * find out whether there is a route between two nodes.
 	 */
+	public static boolean doesPathExist(int[][] graph, int source, int destination) {
+		Queue<Integer> queue = new LinkedList<Integer>();
+		boolean[] isVisited = new boolean[graph.length];
+		queue.add(source);
+		isVisited[source] = true;
+		while (!queue.isEmpty()) {
+			int vertex = queue.remove();
+			for (int index = 0; index < graph.length; index++) {
+				if (graph[vertex][index] == 1) {
+					if (index == destination) {
+						queue.clear();
+						return true;
+					}
+					if (!isVisited[index]) {
+						queue.add(index);
+						isVisited[index] = true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * 4.2 Minimal Tree: Given a sorted (increasing order) array with unique

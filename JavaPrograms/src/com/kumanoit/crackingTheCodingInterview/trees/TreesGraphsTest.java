@@ -1,10 +1,10 @@
-package com.kumanoit.crackingTheCodingInterview;
+package com.kumanoit.crackingTheCodingInterview.trees;
 
 import com.kumanoit.trees.Constants;
 import com.kumanoit.trees.Tree;
 import com.kumanoit.trees.TreeUtils;
 
-public class Main {
+public class TreesGraphsTest {
 
 	private static Tree root1;
 	private static Tree root2;
@@ -96,8 +96,22 @@ public class Main {
 		}
 	}
 
+	public static void testDoesPathExist() {
+		int[][] matrix = {
+				{0, 1, 1, 0, 0},
+				{0, 0, 0, 0, 0},
+				{0, 1, 0, 0, 1},
+				{0, 0, 0, 0, 1},
+				{1, 0, 0, 1, 0}
+		};
+		System.out.println(TreesGraphs.doesPathExist(matrix, 0, 3));
+		System.out.println(TreesGraphs.doesPathExist(matrix, 1, 4));
+		System.out.println(TreesGraphs.doesPathExist(matrix, 2, 3));
+		System.out.println(TreesGraphs.doesPathExist(matrix, 3, 2));
+	}
+
 	public static void main(String[] args) {
-		testInorderPredecessor();
+		testDoesPathExist();
 	}
 
 }

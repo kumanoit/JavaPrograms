@@ -6,7 +6,11 @@
  */
 package com.kumanoit.trees;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -55,6 +59,30 @@ public class TreeTraversal {
 				queue.add(root.getRightChild());
 			}
 		}
+	}
+	
+	public static void printVerticalOrder(Tree root) {
+		HashMap<Integer, List<Tree>> map = new HashMap<Integer, List<Tree>>();
+		printVerticalOrder(root, map, 0);
+		for (Entry<Integer, List<Tree>> entry : map.entrySet()) {
+			System.out.println("\nNodes at column : " + entry.getKey());
+			entry.getValue().forEach(item -> System.out.print(item.getData() + ", "));
+		}
+	}
+
+	public static void printVerticalOrder(Tree root, HashMap<Integer, List<Tree>> map, int level) {
+		if (root == null) {
+			return;
+		}
+		if (map.keySet().contains(level)) {
+			map.get(level).add(root);
+		} else {
+			List<Tree> list = new ArrayList<Tree>();
+			list.add(root);
+			map.put(level, list);
+		}
+		printVerticalOrder(root.getLeftChild(), map, level - 1);
+		printVerticalOrder(root.getRightChild(), map, level + 1);
 	}
 
 	public static void displayTree(Tree root) {
@@ -224,4 +252,5 @@ public class TreeTraversal {
 			}
 		}
 	}
+
 }

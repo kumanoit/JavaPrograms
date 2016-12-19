@@ -383,4 +383,37 @@ public class Miscellaneous {
 			System.out.println("The sum at level = " + ++level + " is = " + sum);
 		}
 	}
+
+	// convert a binary tree to children sum property tree
+	public static int convertToCSP(Tree root) {
+		if (root == null) {
+			return 0;
+		}
+		if (root.isLeaf()) {
+			return root.getData();
+		}
+		int leftValue = convertToCSP(root.getLeftChild());
+		int rightValue = convertToCSP(root.getRightChild());
+		int sum = leftValue + rightValue;
+		if (root.getData() <= sum) {
+			root.setData(sum);
+		} else {
+			int diff = root.getData() - sum;
+			convertToCSP(root, diff);
+		} 
+		return root.getData();
+	}
+
+	private static void convertToCSP(Tree root, int diff) {
+		if (root.getLeftChild() != null) {
+			Tree leftChild = root.getLeftChild();
+			leftChild.setData(leftChild.getData() + diff);
+			convertToCSP(leftChild, diff);
+		}
+		else if (root.getRightChild() != null) {
+			Tree rightChild = root.getRightChild();
+			rightChild.setData(rightChild.getData() + diff);
+			convertToCSP(rightChild, diff);
+		}
+	}
 }

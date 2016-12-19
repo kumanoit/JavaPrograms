@@ -73,7 +73,7 @@ public class LinkedListTest {
 		}
 		last.setNextNode(ptr);
 		list1.display();
-		MyList loopStartsAt = LinkedListSolution.findStartOfLoop(list1);
+		MyList loopStartsAt = LinkedListSolution.detectLoop(list1);
 		if (loopStartsAt == null) {
 			System.out.println("No intersection point in loop");
 		} else {

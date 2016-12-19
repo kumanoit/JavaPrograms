@@ -12,6 +12,7 @@ public class TreeMain {
 	private static Tree root2;
 	private static Tree root3;
 	private static Tree root4; // unbalanced tree
+	private static Tree root6;
 	private static Tree bstRoot;
 	private static Tree sumTreeRoot;
 
@@ -20,6 +21,7 @@ public class TreeMain {
 		root2 = TreeUtils.createTree(Constants.array2);
 		root3 = TreeUtils.createTree(Constants.array3);
 		root4 = TreeUtils.createTree(Constants.array5);
+		root6 = TreeUtils.createTree(Constants.array6);
 		bstRoot = TreeUtils.createTree(Constants.bstArray);
 		sumTreeRoot = TreeUtils.createTree(Constants.sumTree);
 	}
@@ -130,8 +132,30 @@ public class TreeMain {
 		Miscellaneous.printSumLevelWise(bstRoot);
 	}
 
+	public static void testConvertToCSP() {
+		root6.printLevelOrder();
+		Miscellaneous.convertToCSP(root6);
+		System.out.println("\n");
+		root6.printLevelOrder();
+
+	}
+
+	public static void testCreateBinarySearchTree() {
+		int[] array = { 6, 0, 3, 5, 8, 7, 1, 4, 2, 3 };
+		TreeUtils.createBinarySearchTree(array).display();
+	}
+
+	public static void testGetEdit() {
+		String stringA = "";
+		String stringB = "";
+	}
+
+	public static void testPrintVerticalOrder() {
+		TreeTraversal.printVerticalOrder(root1);
+	}
+
 	public static void main(String[] args) {
-		testPrintSumLevelWise();
+		testPrintVerticalOrder();
 	}
 
 }

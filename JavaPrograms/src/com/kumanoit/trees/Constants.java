@@ -9,12 +9,13 @@ package com.kumanoit.trees;
 public class Constants {
 
 	public static final Integer array1[] = { 1, 2, 3, 4, 5, 6, 7 };
-	public static final Integer array2[] = { 1, 2, 3 , 4, 5, 6, 7, 8, 9 };
+	public static final Integer array2[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	public static final Integer array3[] = { 8, 9, 15, 1, 10, 13, 16, 2, 3, 12, 15, null, null, 8, 1, 4, 5, 6, 7 };
 	public static final Integer array4[] = { 8, 1, 7, 2, 3, null, 9, 5, 8, null, null, null, 1, null, null, null, null, 2,
 			3, 4, 5, 6, 7 };
 	public static final Integer array5[] = { 1, 2, 3, 4, 5, 6, 7, null, 8, 9, null, null, 10, 11, 12, 13, null, null,
 			null, 14, 15 };
+	public static final Integer array6[] = { 50, 7, 2, 3, 5, 1, 30 };
 	public static final Integer sumTree[] = { 26, 10, 3, 4, 6, null, 3 };
 	public static final Integer bstArray[] = { 50, 30, 60, 22, 38, 55, 94, null, null, 35, null, null, 59, null, 98 };
 

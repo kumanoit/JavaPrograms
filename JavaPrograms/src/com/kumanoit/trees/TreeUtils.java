@@ -64,4 +64,28 @@ public class TreeUtils {
 		}
 		return root;
 	}
+
+	// create binary search tree
+	public static Tree createBinarySearchTree(int[] array) {
+		Tree root = null;
+		for(int index = 0; index < array.length; index++) {
+			root = insertIntoBst(root, array[index]);
+		}
+		return root;
+	}
+
+	private static Tree insertIntoBst(Tree root, int data) {
+		if (root == null) {
+			return new Tree(data);
+		}
+		if (root.getData() == data) {
+			System.out.println(data + " already present");
+		} else if (root.getData() < data) {
+			root.setRightChild(insertIntoBst(root.getRightChild(), data));
+		} else {
+			root.setLeftChild(insertIntoBst(root.getLeftChild(), data));
+		}
+		return root;
+	}
+
 }

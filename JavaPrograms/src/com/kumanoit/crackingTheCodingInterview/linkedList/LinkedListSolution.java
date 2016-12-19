@@ -7,10 +7,11 @@ public class LinkedListSolution {
 	 * 2.1 Remove Dups! Write code to remove duplicates from an unsorted linked
 	 * list. FOLLOW UP How would you solve this problem if a temporary buffer is
 	 * not allowed?
+	 * http://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/
 	 */
 	public static void removeDuplicates(MyList start) {
 		if (start == null || start.getNextNode() == null) {
-			return ;
+			return;
 		}
 		for (MyList p = start; p.getNextNode() != null; p = p.getNextNode()) {
 			for (MyList q = p; q.getNextNode() != null;) {
@@ -31,6 +32,8 @@ public class LinkedListSolution {
 	/**
 	 * 2.2 Return Kth to Last: Implement an algorithm to find the kth to last
 	 * element of a singly linked list.
+	 * 
+	 * http://www.geeksforgeeks.org/nth-node-from-the-end-of-a-linked-list/
 	 */
 	public static MyList getKthLastElement(MyList start, int k) throws NullPointerException {
 		if (start == null) {
@@ -57,6 +60,9 @@ public class LinkedListSolution {
 	 * exact middle) of a singly linked list, given only access to that node.
 	 * EXAMPLE lnput:the node c from the linked list a->b->c->d->e->f Result:
 	 * nothing is returned, but the new linked list looks like a->b->d->e- >f
+	 * 
+	 * http://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/
+	 * http://www.geeksforgeeks.org/in-a-linked-list-given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/
 	 */
 	public static void deleteANodeFromMiddle(MyList nodeToBeDeleted) {
 		if (nodeToBeDeleted == null || nodeToBeDeleted.getNextNode() == null) {
@@ -204,14 +210,16 @@ public class LinkedListSolution {
 	/**
 	 * 2.6 Palindrome: Implement a function to check if a linked list is a
 	 * palindrome.
+	 * 
+	 * http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
 	 */
 	static MyList last;
-	
+
 	public static boolean isLinkedListPalindrom(MyList start) {
 		last = start;
 		return isLinkedListPalindrome(start);
 	}
-	
+
 	private static boolean isLinkedListPalindrome(MyList start) {
 		if (start == null) {
 			return true;
@@ -222,12 +230,15 @@ public class LinkedListSolution {
 		}
 		return false;
 	}
+
 	/**
 	 * 2.7 Intersection: Given two (singly) linked lists, determine if the two
 	 * lists intersect. Return the intersecting node. Note that the intersection
 	 * is defined based on reference, not value. That is, if the kth node of the
 	 * first linked list is the exact same node (by reference) as the jth node of
 	 * the second linked list, then they are intersecting.
+	 * 
+	 * http://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 	 */
 	/**
 	 * O(n^2) solution
@@ -249,7 +260,7 @@ public class LinkedListSolution {
 	public static MyList getIntersectionOfTwoLinkedList2(MyList start1, MyList start2) {
 		MyList lastNode = start1.getLastNode();
 		lastNode.setNextNode(start2);
-		return findStartOfLoop(start1);
+		return detectLoop(start1);
 	}
 
 	/**
@@ -258,8 +269,10 @@ public class LinkedListSolution {
 	 * linked list: A (corrupt) linked list in which a node's next pointer points
 	 * to an earlier node, so as to make a loop in the linked list. EXAMPLE Input:
 	 * A -> B -> C - > D -> E -> C [the same C as earlier] Output: C
+	 * 
+	 * http://www.geeksforgeeks.org/write-a-c-function-to-detect-loop-in-a-linked-list/
 	 */
-	public static MyList findStartOfLoop(MyList start) {
+	public static MyList detectLoop(MyList start) {
 		if (start == null || start.getNextNode() == null) {
 			return null;
 		}

@@ -4,7 +4,7 @@
  * Copyright © 2016 Amit Kumar. All rights reserved.
  * 
  */
-package com.kumanoit.trees;
+package com.kumanoit.trees.utils;
 
 import java.util.HashSet;
 import java.util.LinkedList;

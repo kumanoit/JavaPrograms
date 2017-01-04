@@ -8,6 +8,8 @@ package com.kumanoit.trees;
 
 import java.util.Stack;
 
+import com.kumanoit.trees.utils.Tree;
+
 public class BinarySearchTree {
 
 	private static int localSum = 0;
@@ -172,5 +174,4 @@ public class BinarySearchTree {
 		root.setRightChild(createBinarySearchTreeFromPreorder(preorder, size - (index - start), index));
 		return root;
 	}
-
 }

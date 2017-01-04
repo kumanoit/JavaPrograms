@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
+
+import com.kumanoit.trees.utils.Tree;
+
 import java.util.Queue;
 import java.util.Stack;
 
@@ -60,7 +63,7 @@ public class TreeTraversal {
 			}
 		}
 	}
-	
+
 	public static void printVerticalOrder(Tree root) {
 		HashMap<Integer, List<Tree>> map = new HashMap<Integer, List<Tree>>();
 		printVerticalOrder(root, map, 0);
@@ -83,6 +86,40 @@ public class TreeTraversal {
 		}
 		printVerticalOrder(root.getLeftChild(), map, level - 1);
 		printVerticalOrder(root.getRightChild(), map, level + 1);
+	}
+
+	public static void printVerticalOrderLevelOrder(Tree root) {
+		Queue<Tree> queue = new LinkedList<Tree>();
+		HashMap<Integer, List<Tree>> map = new HashMap<Integer, List<Tree>>();
+		queue.add(root);
+		queue.add(new Tree(0));
+		int minIndex = Integer.MAX_VALUE;
+		int maxIndex = Integer.MIN_VALUE;
+		while (!queue.isEmpty()) {
+			Tree ptr = queue.remove();
+			int index = queue.remove().getData();
+			minIndex = minIndex > index ? index : minIndex;
+			maxIndex = maxIndex < index ? index : maxIndex;
+			if (map.keySet().contains(index)) {
+				map.get(index).add(ptr);
+			} else {
+				List<Tree> list = new ArrayList<Tree>();
+				list.add(ptr);
+				map.put(index, list);
+			}
+			if (ptr.getLeftChild() != null) {
+				queue.add(ptr.getLeftChild());
+				queue.add(new Tree(index - 1));
+			}
+			if (ptr.getRightChild() != null) {
+				queue.add(ptr.getRightChild());
+				queue.add(new Tree(index + 1));
+			}
+		}
+		for (int index = minIndex; index <= maxIndex; index++) {
+			System.out.println("\nIndex = " + index);
+			map.get(index).forEach(item -> System.out.print(item.getData() + "\t"));
+		}
 	}
 
 	public static void displayTree(Tree root) {
@@ -122,7 +159,7 @@ public class TreeTraversal {
 
 		Stack<Tree> stack = new Stack<Tree>();
 		Tree ptr = root;
-		while(true) {
+		while (true) {
 			while (ptr.getLeftChild() != null) {
 				stack.push(ptr);
 				ptr = ptr.getLeftChild();
@@ -148,12 +185,12 @@ public class TreeTraversal {
 		Tree ptr = root;
 		Tree temp = null;
 		while (true) {
-			while(ptr.getLeftChild() != null) {
+			while (ptr.getLeftChild() != null) {
 				stack.push(ptr);
 				ptr = ptr.getLeftChild();
 			}
 
-			while(ptr.getRightChild() == null || ptr.getRightChild() == temp) {
+			while (ptr.getRightChild() == null || ptr.getRightChild() == temp) {
 				System.out.print(ptr.getData() + "\t");
 				temp = ptr;
 				if (stack.isEmpty()) {
@@ -190,7 +227,7 @@ public class TreeTraversal {
 				ptr = ptr.getRightChild();
 			} else {
 				Tree temp = ptr.getLeftChild();
-				while(temp.getRightChild() != null) {
+				while (temp.getRightChild() != null) {
 					temp = temp.getRightChild();
 				}
 				temp.setRightChild(ptr.getRightChild());
@@ -205,13 +242,13 @@ public class TreeTraversal {
 		}
 		System.out.println();
 		Tree ptr = root;
-		while(ptr != null) {
+		while (ptr != null) {
 			if (ptr.getLeftChild() == null) {
 				System.out.print(ptr.getData() + "\t");
 				ptr = ptr.getRightChild();
 			} else {
 				Tree temp = ptr.getLeftChild();
-				while(temp.getRightChild() != null) {
+				while (temp.getRightChild() != null) {
 					temp = temp.getRightChild();
 				}
 				temp.setRightChild(ptr);

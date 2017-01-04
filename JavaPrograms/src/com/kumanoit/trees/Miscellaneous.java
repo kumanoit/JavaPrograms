@@ -13,12 +13,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import com.kumanoit.trees.utils.Tree;
+
 import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
 public class Miscellaneous {
-
-	private static int leafLevel = -1;
 
 	// difference between odd and even level nodes
 	public static int getDifference(Tree root) {
@@ -29,6 +31,7 @@ public class Miscellaneous {
 	}
 
 	// height of tree
+	// http://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
 	public static int getHeight(Tree tree) {
 		if (tree == null) {
 			return 0;
@@ -38,138 +41,15 @@ public class Miscellaneous {
 		return Math.max(leftHeight, rightHeight) + 1;
 	}
 
-	// print ancestors of all leaf nodes in a tree
-	public static void printAncestors(Tree root, List<Tree> list) {
-		if (root == null) {
-			return;
-		}
-		if (root.isLeaf()) {
-			System.out.print("Ancestors of " + root.getData() + " : ");
-			list.forEach(item -> System.out.print(item.getData() + " "));
-			System.out.println();
-			return;
-		}
-		list.add(root);
-		printAncestors(root.getLeftChild(), list);
-		printAncestors(root.getRightChild(), list);
-		list.remove(root);
-	}
-
-	// checks if all leaf nodes are present at same level
-	public static void areAllLeafAtSameLevel(Tree root) {
-		if (areAllLeafAtSameLevel(root, 0)) {
-			System.out.println("All leaf nodes are same level.");
-		} else {
-			System.out.println("No, all leaf nodes are not at same level.");
-		}
-	}
-
-	private static boolean areAllLeafAtSameLevel(Tree root, int level) {
-		if (root == null) {
-			return true;
-		}
-		if (root.isLeaf()) {
-			if (leafLevel == -1) {
-				leafLevel = level;
-			}
-			return leafLevel == level;
-		}
-		return areAllLeafAtSameLevel(root.getLeftChild(), level + 1)
-				&& areAllLeafAtSameLevel(root.getRightChild(), level + 1);
-	}
-
-	// checks if two trees have same structure
-	public static boolean areTreesIsomorphic(Tree root1, Tree root2) {
-		if (root1 == null && root2 == null) {
-			return true;
-		}
-		if (root1 == null || root2 == null) {
-			return false;
-		}
-		if (root1.getData() != root2.getData()) {
-			return false;
-		}
-		return areTreesIsomorphic(root1.getLeftChild(), root2.getLeftChild())
-				&& areTreesIsomorphic(root1.getRightChild(), root2.getRightChild())
-				|| areTreesIsomorphic(root1.getLeftChild(), root2.getRightChild())
-						&& areTreesIsomorphic(root1.getRightChild(), root2.getLeftChild());
-	}
-
-	// prints all paths b/w any two nodes lying in same path from root to leaf
-	// with given sum
-	public static void printPathWithSumK(Tree root, int k) {
-		System.out.println("Via O(n^2) : ");
-		printPathWithSumK(root, k, new ArrayList<Tree>(), 0);
-		System.out.println("Via O(n) : ");
-		Map<Integer, Integer> map = new HashMap<>();
-		map.put(0, -1);
-		printPathWithSumK(root, k, 0, new ArrayList<Tree>(), map, 0);
-	}
-
-	// prints all paths b/w any two nodes lying in same path from root to leaf
-	// with given sum
-	// O(n^2)
-	public static void printPathWithSumK(Tree root, int k, List<Tree> path, int sum) {
-		if (root == null) {
-			return;
-		}
-		sum += root.getData();
-		path.add(root);
-		if (sum >= k) {
-			int temp = sum;
-			int index = 0;
-			while (temp > k && index < path.size()) {
-				temp -= path.get(index).getData();
-				index++;
-			}
-			if (temp == k) {
-				while (index < path.size()) {
-					System.out.print(path.get(index).getData() + "\t");
-					index++;
-				}
-				System.out.println();
-			}
-		}
-		printPathWithSumK(root.getLeftChild(), k, path, sum);
-		printPathWithSumK(root.getRightChild(), k, path, sum);
-		path.remove(root);
-	}
-
-	// prints all paths b/w any two nodes lying in same path from root to leaf
-	// with given sum
-	// O(n)
-	public static void printPathWithSumK(Tree root, int k, int sum, List<Tree> paths, Map<Integer, Integer> sumIndexMap,
-			int index) {
-		if (root == null) {
-			return;
-		}
-		sum += root.getData();
-		paths.add(root);
-		sumIndexMap.put(sum, index);
-		if (sum >= k) {
-			if (sumIndexMap.keySet().contains(sum - k)) {
-				int lastIndex = sumIndexMap.get(sum - k) + 1;
-				for (int i = lastIndex; i <= index; i++) {
-					System.out.print(paths.get(i).getData() + "\t");
-				}
-				System.out.println();
-			}
-		}
-		printPathWithSumK(root.getLeftChild(), k, sum, paths, sumIndexMap, index + 1);
-		printPathWithSumK(root.getRightChild(), k, sum, paths, sumIndexMap, index + 1);
-		paths.remove(root);
-		sumIndexMap.remove(sum);
-	}
-
 	// counts total paths b/w any two nodes in lying in same path from root to
 	// leaf with given sum
-	public static int countTotalPathsGivingSum(Tree root, int k) {
+	public static int getTotalPathsGivingSum(Tree root, int k) {
 		Set<Integer> set = new HashSet<Integer>();
 		set.add(0);
-		return countTotalPathsGivingSum(root, k, set, new ArrayList<Tree>(), 0, 0);
+		return getTotalPathsGivingSum(root, k, set, new ArrayList<Tree>(), 0, 0);
 	}
 
-	public static int countTotalPathsGivingSum(Tree root, int k, Set<Integer> set, ArrayList<Tree> paths, int sum,
+	public static int getTotalPathsGivingSum(Tree root, int k, Set<Integer> set, ArrayList<Tree> paths, int sum,
 			int level) {
 		if (root == null) {
 			return 0;
@@ -177,8 +57,8 @@ public class Miscellaneous {
 		sum += root.getData();
 		paths.add(root);
 		set.add(sum);
-		int total = countTotalPathsGivingSum(root.getLeftChild(), k, set, paths, sum, level + 1)
-				+ countTotalPathsGivingSum(root.getRightChild(), k, set, paths, sum, level + 1);
+		int total = getTotalPathsGivingSum(root.getLeftChild(), k, set, paths, sum, level + 1)
+				+ getTotalPathsGivingSum(root.getRightChild(), k, set, paths, sum, level + 1);
 		if (set.contains(sum - k)) {
 			total++;
 		}
@@ -188,50 +68,8 @@ public class Miscellaneous {
 		return total;
 	}
 
-	// checks if given tree is a binary search tree
-	private static Tree lastVisitedNode = null;
-
-	public static boolean isBinarySearchTree(Tree root) {
-		if (root == null) {
-			return true;
-		}
-		if (!isBinarySearchTree(root.getLeftChild())) {
-			return false;
-		}
-		if (lastVisitedNode != null && lastVisitedNode.getData() >= root.getData()) {
-			return false;
-		}
-		lastVisitedNode = root;
-		return true;
-	}
-
-	// checks if given tree is a balanced tree or not
-	public static boolean isBalanced(Tree root) {
-		return isBalancedTree(root) != -1;
-	}
-
-	public static int isBalancedTree(Tree root) {
-		if (root == null) {
-			return 0;
-		}
-
-		int lh = isBalancedTree(root.getLeftChild());
-		if (lh == -1) {
-			return -1;
-		}
-
-		int rh = isBalancedTree(root.getRightChild());
-		if (rh == -1) {
-			return -1;
-		}
-
-		if (Math.abs(lh - rh) > 1) {
-			return -1;
-		}
-		return Math.max(lh, rh) + 1;
-	}
-
-	// total number of nodes in a tree
+	// total number of nodes in a tree :
+	// http://www.geeksforgeeks.org/write-a-c-program-to-calculate-size-of-a-tree/
 	public static int getSizeOfTree(Tree root) {
 		if (root == null) {
 			return 0;
@@ -239,84 +77,9 @@ public class Miscellaneous {
 		return 1 + getSizeOfTree(root.getLeftChild()) + getSizeOfTree(root.getRightChild());
 	}
 
-	// checks if a tree is a sum tree. where sum tree is a tree in which all
-	// non-leaf nodes has value equal to sum of left subtree nodes and right
-	// subtree nodes
-	public static boolean isSumTree(Tree root) {
-		return isSumTreeCheck(root) != -1;
-	}
-
-	private static int isSumTreeCheck(Tree root) {
-		if (root == null) {
-			return 0;
-		}
-		if (root.isLeaf()) {
-			return root.getData();
-		}
-		int leftSubtreeSum = isSumTreeCheck(root.getLeftChild());
-		if (leftSubtreeSum == -1) {
-			return -1;
-		}
-		int rightSubtreeSum = isSumTreeCheck(root.getRightChild());
-		if (rightSubtreeSum == -1) {
-			return -1;
-		}
-		if (leftSubtreeSum + rightSubtreeSum != root.getData()) {
-			return -1;
-		}
-		return 2 * root.getData();
-	}
-
-	// checks if given bst has only child for non-leaf nodes given in form of
-	// preorder
-	public static boolean isBstHasOneChild(int preorder[], int size) {
-		if (size == 0) {
-			return true;
-		}
-		int max = Math.max(preorder[size - 1], preorder[size - 2]);
-		int min = preorder[size - 1] + preorder[size - 2] - max;
-		for (int index = size - 3; index >= 0; index--) {
-			if (preorder[index] < min) {
-				min = preorder[index];
-			} else if (preorder[index] > max) {
-				max = preorder[index];
-			} else {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	// checks if trees are identical
-	public static boolean areTreesIdentical(Tree root1, Tree root2) {
-		if (root1 == null && root2 == null) {
-			return true;
-		}
-		if (root1 == null || root2 == null) {
-			return false;
-		}
-		if (root1.getData() != root2.getData()) {
-			return false;
-		}
-		return areTreesIdentical(root1.getLeftChild(), root2.getLeftChild())
-				&& areTreesIdentical(root1.getRightChild(), root2.getRightChild());
-	}
-
-	// convert a tree to its mirror form
-	public static void convertToMirrorTree(Tree root) {
-		if (root == null) {
-			return;
-		}
-		convertToMirrorTree(root.getLeftChild());
-		convertToMirrorTree(root.getRightChild());
-		Tree leftSubTree = root.getLeftChild();
-		Tree rightSubTree = root.getRightChild();
-		root.setLeftChild(rightSubTree);
-		root.setRightChild(leftSubTree);
-	}
-
 	// print maximum from root to leaf
 	private static int maxSum = 0;
+
 	public static int getMaxSumFromRootToLeaf(Tree root) {
 		maxSum = 0;
 		getMaxSumFromRootToLeaf(root, 0);
@@ -333,87 +96,183 @@ public class Miscellaneous {
 		getMaxSumFromRootToLeaf(root.getRightChild(), sum);
 	}
 
-	// level order sum
-	public static void printSumLevelWise(Tree root) {
-		System.out.println("Using hashmap");
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		printSumLevelWise(root, 0, map);
-		for (Entry<Integer, Integer> entry : map.entrySet()) {
-			System.out.println("The sum of nodes at level = " + entry.getKey() + ", " + entry.getValue());
-		}
-		System.out.println("Using queue");
-		printSumUsingQueue(root);
-	}
-	
-	private static void printSumLevelWise(Tree root, int level, Map<Integer, Integer> sumMap) {
+	// http://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/
+	public static int getWidthOfTree(Tree root) {
 		if (root == null) {
-			return;
+			return 0;
 		}
-		if (sumMap.keySet().contains(level)) {
-			sumMap.put(level, sumMap.get(level) + root.getData());
-		} else {
-			sumMap.put(level, root.getData());
-		}
-		printSumLevelWise(root.getLeftChild(), level + 1, sumMap);
-		printSumLevelWise(root.getRightChild(), level + 1, sumMap);
-	}
-
-	private static void printSumUsingQueue(Tree root) {
-		if(root == null) {
-			return;
-		}
-		int level = 0;
-		int sum = 0;
 		Queue<Tree> queue = new LinkedList<Tree>();
 		queue.add(root);
+		int maxWidth = 0;
 		while (!queue.isEmpty()) {
-			sum = 0;
-			int totalSizeOfQueue = queue.size();
-			while (totalSizeOfQueue > 0) {
+			int count = queue.size();
+			maxWidth = Math.max(maxWidth, count);
+			while (count > 0) {
 				Tree ptr = queue.remove();
+				count--;
 				if (ptr.getLeftChild() != null) {
 					queue.add(ptr.getLeftChild());
 				}
 				if (ptr.getRightChild() != null) {
 					queue.add(ptr.getRightChild());
 				}
-				sum += ptr.getData();
-				totalSizeOfQueue--;
 			}
-			System.out.println("The sum at level = " + ++level + " is = " + sum);
 		}
+		return maxWidth;
 	}
 
-	// convert a binary tree to children sum property tree
-	public static int convertToCSP(Tree root) {
+	public static int getWidthOfTreeViaMap(Tree root) {
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		getWidthOfTreeViaMap(root, map, 0);
+		int maxWidth = 0;
+		int maxWidthLevel = 0;
+		for (Entry<Integer, Integer> entry : map.entrySet()) {
+			if (entry.getValue() > maxWidth) {
+				maxWidth = entry.getValue();
+				maxWidthLevel = entry.getKey();
+			}
+		}
+		System.out.println("Maximum width is at level = " + maxWidthLevel);
+		return maxWidth;
+	}
+
+	private static void getWidthOfTreeViaMap(Tree root, Map<Integer, Integer> map, int level) {
+		if (root == null) {
+			return;
+		}
+		if (map.keySet().contains(level)) {
+			map.put(level, map.get(level) + 1);
+		} else {
+			map.put(level, 1);
+		}
+		getWidthOfTreeViaMap(root.getLeftChild(), map, level + 1);
+		getWidthOfTreeViaMap(root.getRightChild(), map, level + 1);
+	}
+
+	// http://www.geeksforgeeks.org/find-level-maximum-sum-binary-tree/
+	public static int getMaxSumLevel(Tree root) {
 		if (root == null) {
 			return 0;
 		}
-		if (root.isLeaf()) {
-			return root.getData();
+		Queue<Tree> queue = new LinkedList<Tree>();
+		queue.add(root);
+		int maxSum = 0;
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			int sum = 0;
+			while (size > 0) {
+				Tree ptr = queue.remove();
+				size--;
+				sum += ptr.getData();
+				if (ptr.getLeftChild() != null) {
+					queue.add(ptr.getLeftChild());
+				}
+				if (ptr.getRightChild() != null) {
+					queue.add(ptr.getRightChild());
+				}
+			}
+			maxSum = Math.max(maxSum, sum);
 		}
-		int leftValue = convertToCSP(root.getLeftChild());
-		int rightValue = convertToCSP(root.getRightChild());
-		int sum = leftValue + rightValue;
-		if (root.getData() <= sum) {
-			root.setData(sum);
-		} else {
-			int diff = root.getData() - sum;
-			convertToCSP(root, diff);
-		} 
-		return root.getData();
+		return maxSum;
 	}
 
-	private static void convertToCSP(Tree root, int diff) {
-		if (root.getLeftChild() != null) {
-			Tree leftChild = root.getLeftChild();
-			leftChild.setData(leftChild.getData() + diff);
-			convertToCSP(leftChild, diff);
-		}
-		else if (root.getRightChild() != null) {
-			Tree rightChild = root.getRightChild();
-			rightChild.setData(rightChild.getData() + diff);
-			convertToCSP(rightChild, diff);
-		}
+	// http://www.geeksforgeeks.org/root-leaf-paths-equal-lengths-binary-tree/
+	public static void getCountOfTreeWithSameHeight(Tree root) {
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		getCountOfTreeWithSameHeight(root, 0, map);
+		map.forEach((k, v) -> {
+			System.out.println(v + " paths are of length " + k);
+		});
 	}
+
+	private static void getCountOfTreeWithSameHeight(Tree root, int level, Map<Integer, Integer> map) {
+		if (root == null) {
+			return;
+		}
+		level++;
+		if (root.isLeaf()) {
+			if (map.keySet().contains(level)) {
+				map.put(level, map.get(level) + 1);
+			} else {
+				map.put(level, 1);
+			}
+			return;
+		}
+		getCountOfTreeWithSameHeight(root.getLeftChild(), level, map);
+		getCountOfTreeWithSameHeight(root.getRightChild(), level, map);
+	}
+
+	// http://www.geeksforgeeks.org/longest-consecutive-sequence-binary-tree/
+	private static int maxContinuousLength = 0;
+
+	public static int getMaxContinuousLength(Tree root) {
+		maxContinuousLength = 0;
+		getMaxContinuousLength(root, 0, null);
+		return maxContinuousLength;
+	}
+
+	private static void getMaxContinuousLength(Tree root, int maxLengthSoFar, Tree lastNode) {
+		if (root == null) {
+			return;
+		}
+		if (lastNode == null || root.getData() == lastNode.getData() + 1) {
+			maxLengthSoFar++;
+			maxContinuousLength = Math.max(maxLengthSoFar, maxContinuousLength);
+		} else {
+			maxLengthSoFar = 1;
+		}
+		getMaxContinuousLength(root.getLeftChild(), maxLengthSoFar, root);
+		getMaxContinuousLength(root.getRightChild(), maxLengthSoFar, root);
+	}
+
+	public static int getMinSteps(int number) {
+		int step = 1;
+		Queue<Integer> queue = new LinkedList<Integer>();
+		queue.add(0);
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			while (size > 0) {
+				size--;
+				int start = queue.remove();
+				if (start + step == number || start - step == number) {
+					return step;
+				}
+				queue.add(start - step);
+				queue.add(start + step);
+			}
+			step++;
+		}
+		return -1;
+	}
+
+	// http://www.geeksforgeeks.org/find-multiplication-of-sums-of-data-of-all-leaves-at-sane-levels/
+	public static int getMultiplicationOfLeavesAtSameLevel(Tree root) {
+		if (root == null) {
+			return 0;
+		}
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		getMultiplicationOfLeavesAtSameLevel(root, map, 0);
+		int product = 1;
+		for (Entry<Integer, Integer> entry : map.entrySet()) {
+			System.out.println("Sum at level = " + entry.getKey() + " = " + entry.getValue());
+			product *= entry.getValue();
+		}
+		return product;
+	}
+
+	private static void getMultiplicationOfLeavesAtSameLevel(Tree root, Map<Integer, Integer> map, int level) {
+		if (root == null) {
+			return;
+		}
+		if (root.isLeaf()) {
+			if (map.keySet().contains(level)) {
+				map.put(level, map.get(level) + root.getData());
+			} else {
+				map.put(level, root.getData());
+			}
+		}
+		getMultiplicationOfLeavesAtSameLevel(root.getLeftChild(), map, level + 1);
+		getMultiplicationOfLeavesAtSameLevel(root.getRightChild(), map, level + 1);
+	}
+
 }

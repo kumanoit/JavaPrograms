@@ -6,6 +6,8 @@
  */
 package com.kumanoit.trees;
 
+import com.kumanoit.trees.utils.Tree;
+
 public class CreateTree {
 
 	// creating a binary tree from inorder and preorder traversal

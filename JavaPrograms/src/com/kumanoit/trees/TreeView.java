@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.kumanoit.trees.utils.Tree;
+
 public class TreeView {
 
 	private static int maxLevel = -1;

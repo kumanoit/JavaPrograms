@@ -7,11 +7,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import com.kumanoit.trees.utils.Tree;
+
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Set;
-
-import com.kumanoit.trees.Tree;
 
 /**
  * @author kuma wrote on Dec 10, 2016

@@ -1,8 +1,8 @@
 package com.kumanoit.crackingTheCodingInterview.trees;
 
-import com.kumanoit.trees.Constants;
-import com.kumanoit.trees.Tree;
-import com.kumanoit.trees.TreeUtils;
+import com.kumanoit.trees.utils.Constants;
+import com.kumanoit.trees.utils.Tree;
+import com.kumanoit.trees.utils.TreeUtils;
 
 public class TreesGraphsTest {
 

@@ -8,7 +8,7 @@ Similarly {5, 7} and {6, 8} should be merged and become {5, 8}
 
 Write a function which produces the set of merged intervals for the given set of intervals.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -15,7 +15,7 @@ This question has been asked at many places (See this and this)
 The above problem can be easily solved if O(n) extra space is allowed. It becomes interesting due to the limitations that O(1) extra space and order of appearances.
 The idea is to process array from left to right. While processing, find the first out of place element in the remaining unprocessed array. An element is out of place if it is negative and at odd index, or it is positive and at even index. Once we find an out of place element, we find the first element after it with opposite sign. We right rotate the subarray between these two elements (including these two).
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.Arrays;
 

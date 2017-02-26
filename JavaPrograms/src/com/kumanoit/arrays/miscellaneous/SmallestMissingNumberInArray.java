@@ -15,7 +15,7 @@ Examples
  Input: {1, 1, 0, -1, -2}
  Output: 2 
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.Arrays;
 

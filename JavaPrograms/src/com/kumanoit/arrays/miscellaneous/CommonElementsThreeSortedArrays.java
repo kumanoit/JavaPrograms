@@ -13,7 +13,7 @@ int ar2[] = {3, 4, 5, 5, 10}
 int ar3[] = {5, 5, 10, 20}
 Output: 5, 5
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015

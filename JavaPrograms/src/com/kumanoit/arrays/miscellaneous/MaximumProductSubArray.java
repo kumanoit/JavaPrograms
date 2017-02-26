@@ -13,7 +13,7 @@ Output:   60  // The subarray is {60}
 Input: arr[] = {-2, -3, 0, -2, -40}
 Output:   80  // The subarray is {-2, -40}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 20, 2015

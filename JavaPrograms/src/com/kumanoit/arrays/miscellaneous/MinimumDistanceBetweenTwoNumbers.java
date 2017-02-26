@@ -18,7 +18,7 @@ Output: Minimum distance between 3 and 6 is 4.
 Input: arr[] = {2, 5, 3, 5, 4, 4, 2, 3}, x = 3, y = 2
 Output: Minimum distance between 3 and 2 is 1.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

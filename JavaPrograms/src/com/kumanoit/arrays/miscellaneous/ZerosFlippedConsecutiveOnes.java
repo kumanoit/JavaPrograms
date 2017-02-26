@@ -1,5 +1,5 @@
 /**
- * Find zeroes to be flipped so that number of consecutive 1’s is maximized
+ * Find zeroes to be flipped so that number of consecutive 1ï¿½s is maximized
 Given a binary array and an integer m, find the position of zeroes flipping which creates maximum number of consecutive 1s in array.
 
 Examples:
@@ -24,7 +24,7 @@ Output:  0 1 2
 Since m is more than number of zeroes, we can flip
 all zeroes.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 9, 2015

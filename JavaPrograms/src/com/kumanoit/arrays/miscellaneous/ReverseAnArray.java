@@ -1,7 +1,7 @@
 /**
  * Write a program to reverse an array or string
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

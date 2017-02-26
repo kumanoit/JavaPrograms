@@ -14,7 +14,7 @@ Output: 100 and 5000
 Input: {10, 20}
 Output: 10 and 20
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 20, 2015

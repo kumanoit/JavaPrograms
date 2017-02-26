@@ -14,7 +14,7 @@ Output: 1, 2, 3 OR 1, 2, 4 OR 2, 3, 4
 Input:  arr[] = {4, 3, 2, 1}
 Output: No such triplet
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

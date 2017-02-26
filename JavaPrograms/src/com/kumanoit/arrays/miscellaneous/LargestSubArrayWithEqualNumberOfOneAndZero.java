@@ -12,7 +12,7 @@ Output: No such subarray
 Input: arr[] = {0, 0, 1, 1, 0}
 Output: 0 to 3 Or 1 to 4
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

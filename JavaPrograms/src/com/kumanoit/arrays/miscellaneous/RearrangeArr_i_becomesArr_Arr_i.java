@@ -30,7 +30,7 @@ In second step, all elements are updated to new or output values
 by doing arr[i] = arr[i]/n.
 After second step, array becomes {1, 0, 3, 2}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

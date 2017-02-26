@@ -1,6 +1,6 @@
 /**
  * http://www.geeksforgeeks.org/reorder-a-array-according-to-given-indexes/
- * Given two integer arrays of same size, “arr[]” and “index[]”, reorder elements in “arr[]” according to given index array. It is not allowed to given array arr’s length.
+ * Given two integer arrays of same size, ï¿½arr[]ï¿½ and ï¿½index[]ï¿½, reorder elements in ï¿½arr[]ï¿½ according to given index array. It is not allowed to given array arrï¿½s length.
 
 Example:
 
@@ -15,7 +15,7 @@ Output: arr[]   = [40, 60, 90, 50, 70]
         index[] = [0,  1,  2,  3,   4] 
 Expected time complexity O(n) and auxiliary space O(1)
 */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

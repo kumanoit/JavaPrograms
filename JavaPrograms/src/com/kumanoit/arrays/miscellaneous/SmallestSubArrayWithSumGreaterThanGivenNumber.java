@@ -20,7 +20,7 @@ arr[] = {1, 11, 100, 1, 0, 200, 3, 2, 1, 250}
 Output: 4
 Minimum length subarray is {100, 1, 0, 200}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015

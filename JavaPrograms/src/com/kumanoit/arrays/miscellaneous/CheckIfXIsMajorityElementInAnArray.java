@@ -4,7 +4,7 @@ Question: Write a C function to find if a given integer x appears more than n/2 
 in a sorted array of n integers.
 
 Basically, we need to write a function say isMajority() that takes an array (arr[] ), 
-array’s size (n) and a number to be searched (x) as parameters and returns true 
+arrayï¿½s size (n) and a number to be searched (x) as parameters and returns true 
 if x is a majority element (present more than n/2 times).
 
 Examples:
@@ -18,7 +18,7 @@ Output: False (x doesn't appear more than n/2 times in the given array)
 Input: arr[] = {1, 1, 1, 2, 2}, x = 1
 Output: True (x appears more than n/2 times in the given array)
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

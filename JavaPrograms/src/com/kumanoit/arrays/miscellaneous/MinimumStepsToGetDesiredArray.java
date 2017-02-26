@@ -6,7 +6,7 @@ Consider an array with n elements and value of all the elements is zero. We can 
 Incremental operations:Choose 1 element from the array and increment its value by 1.
 Doubling operation: Double the values of all the elements of array.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

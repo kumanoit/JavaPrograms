@@ -1,4 +1,4 @@
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kuma wrote on Dec 10, 2016

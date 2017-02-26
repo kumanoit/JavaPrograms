@@ -16,7 +16,7 @@ A[0] + A[1] + A[2] = A[4] + A[5] + A[6]
 Write a function int equilibrium(int[] arr, int n); that given a sequence arr[]
  of size n, returns an equilibrium index (if any) or -1 if no equilibrium indexes exist.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

@@ -8,7 +8,7 @@ For example int the array {16, 17, 4, 3, 5, 2}, leaders are 17, 5 and 2.
 
 Let the input array be arr[] and size of the array be size.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

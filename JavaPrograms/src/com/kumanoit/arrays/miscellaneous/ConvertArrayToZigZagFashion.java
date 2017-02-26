@@ -6,7 +6,7 @@ Output: arr[] = {3, 7, 4, 8, 2, 6, 1}
 Input:  arr[] =  {1, 4, 3, 2}
 Output: arr[] =  {1, 4, 2, 3}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

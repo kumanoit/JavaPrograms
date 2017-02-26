@@ -26,7 +26,7 @@ Example 4:
 Input: arr[]  = {3, 2, 1, 0};
 Output: arr[] = {3, 2, 1, 0};
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

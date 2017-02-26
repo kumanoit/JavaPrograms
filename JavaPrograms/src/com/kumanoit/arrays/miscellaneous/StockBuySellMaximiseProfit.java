@@ -15,7 +15,7 @@ If we are allowed to buy and sell only once, then we can use following algorithm
 3. Update the solution (Increment count of buy sell pairs)
 4. Repeat the above steps if end is not reached.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 20, 2015

@@ -12,16 +12,16 @@ Output:  23 (7 + 6 + 5 - 4 -1 + 10)
 Input: a[] = {-1, 40, -14, 7, 6, 5, -4, -1}
 Output: 52 (7 + 6 + 5 - 4 - 1 - 1 + 40)
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
- * @author kumanoit Dec 20, 2015
- * MaximumCircularSubarraySum.java
+ * @author kumanoit Dec 20, 2015 MaximumCircularSubarraySum.java
  */
 public class MaximumCircularSubarraySum {
 
 	public static void main(String[] args) {
-		int[] array = {-1, 40, -14, 7, 6, 5, -4, -1};
+		int[] array = { 2, 3, -6, -7, 4, 5 };
+		// int[] array = {-1, 40, -14, 7, 6, 5, -4, -1};
 		System.out.println(getMaximumSum(array));
 	}
 
@@ -36,5 +36,4 @@ public class MaximumCircularSubarraySum {
 		return Math.max(sumA, totalSum + sumB);
 	}
 
-	
 }

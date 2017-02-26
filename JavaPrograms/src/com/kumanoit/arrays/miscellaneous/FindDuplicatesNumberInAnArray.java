@@ -9,7 +9,7 @@ the answer should be 1, 3 and 6.
 
 This problem is an extended version of following problem.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.HashSet;
 import java.util.Set;

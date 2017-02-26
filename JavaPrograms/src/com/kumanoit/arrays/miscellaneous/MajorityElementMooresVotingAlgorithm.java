@@ -12,7 +12,7 @@ Write a function which takes an array and emits the majority element
        I/P : 3 3 4 2 4 4 2 4
        O/P : NONE
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 22, 2015

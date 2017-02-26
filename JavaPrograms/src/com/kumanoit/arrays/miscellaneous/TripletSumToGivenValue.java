@@ -6,7 +6,7 @@ Given an array and a value, find if there is a triplet in array whose sum is
   For example, if the given array is {12, 3, 4, 1, 6, 9} and given sum is 24,
    then there is a triplet (12, 3 and 9) present in array whose sum is 24.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.Arrays;
 

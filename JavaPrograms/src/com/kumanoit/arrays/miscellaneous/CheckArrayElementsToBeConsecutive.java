@@ -18,7 +18,7 @@ because 5 and 5 are not consecutive.
 
 
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

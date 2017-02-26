@@ -17,7 +17,7 @@ The following solutions print first such subarray.
 
 Source: Google Interview Question
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 21, 2015

@@ -12,7 +12,7 @@ As another example, consider the array {10, 21, 22, 100, 101, 200, 300}.
 There can be 6 possible triangles: {10, 21, 22}, {21, 100, 101}, {22, 100, 101}, 
 {10, 100, 101}, {100, 101, 200} and {101, 200, 300}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.Arrays;
 

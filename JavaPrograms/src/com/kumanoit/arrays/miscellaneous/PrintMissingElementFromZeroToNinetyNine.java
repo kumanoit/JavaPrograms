@@ -18,7 +18,7 @@ Examples
              10-89
              91-98
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 18, 2015 PrintMissingElementFromZeroToNinetyNine.java

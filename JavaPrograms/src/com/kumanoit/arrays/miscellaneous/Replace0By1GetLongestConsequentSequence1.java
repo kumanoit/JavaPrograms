@@ -15,7 +15,7 @@ Input:
 Output:
   Index 4
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015

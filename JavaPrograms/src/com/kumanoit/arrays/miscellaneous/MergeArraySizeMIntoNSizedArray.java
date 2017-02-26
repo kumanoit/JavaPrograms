@@ -16,7 +16,7 @@ MergeN
 Output: N[] merged into mPlusN[] (Modified mPlusN[])
 MergemPlusN_Res
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

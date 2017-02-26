@@ -1,4 +1,4 @@
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.common.CommonUtils;
 

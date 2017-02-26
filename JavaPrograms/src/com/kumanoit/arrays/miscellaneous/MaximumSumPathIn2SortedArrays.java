@@ -1,6 +1,8 @@
 /**
  * Maximum Sum Path in Two Arrays
-Given two sorted arrays such the arrays may have some common elements. Find the sum of the maximum sum path to reach from beginning of any array to end of any of the two arrays. We can switch from one array to another array only at common elements.
+Given two sorted arrays such the arrays may have some common elements. 
+Find the sum of the maximum sum path to reach from beginning of any array to end of any of the two arrays. 
+We can switch from one array to another array only at common elements.
 
 Expected time complexity is O(m+n) where m is the number of elements in ar1[] and n is the number of elements in ar2[].
 
@@ -24,7 +26,7 @@ Input:  ar1[] = {2, 3, 7, 10, 12, 15, 30, 34}
 Output: 122
 122 is sum of 1, 5, 7, 8, 10, 12, 15, 30, 34
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015

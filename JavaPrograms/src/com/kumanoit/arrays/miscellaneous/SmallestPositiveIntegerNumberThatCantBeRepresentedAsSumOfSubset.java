@@ -20,7 +20,7 @@ Output: 4
 Input:  arr[] = {1, 2, 3, 4, 5, 6};
 Output: 22
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015

@@ -6,7 +6,7 @@
  * the maximum repeating number would be 2. Expected time complexity is O(n)
  *  and extra space allowed is O(1). Modifications to array are allowed.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

@@ -1,9 +1,9 @@
 /**
  * Given a binary string, count number of substrings that start and end with 1.
 Given a binary string, count number of substrings that start and end with 1. 
-For example, if the input string is “00100101”, then there are three substrings “1001”, “100101” and “101”.
+For example, if the input string is ï¿½00100101ï¿½, then there are three substrings ï¿½1001ï¿½, ï¿½100101ï¿½ and ï¿½101ï¿½.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 18, 2015

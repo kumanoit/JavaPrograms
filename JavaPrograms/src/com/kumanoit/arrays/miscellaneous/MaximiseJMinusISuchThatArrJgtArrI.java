@@ -1,5 +1,5 @@
 /**
-Given an array arr[], find the maximum j – i such that arr[j] > arr[i].
+Given an array arr[], find the maximum j - i such that arr[j] > arr[i].
 
 Examples:
 
@@ -15,7 +15,7 @@ Examples:
   Input:  {6, 5, 4, 3, 2, 1}
   Output: -1 
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 public class MaximiseJMinusISuchThatArrJgtArrI {
 

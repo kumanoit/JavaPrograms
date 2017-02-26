@@ -7,7 +7,7 @@ among all subarrays of size 3.
 Input:  arr[] = {3, 7, 5, 20, -10, 0, 12}, k = 2
 Output: Subarray between [4, 5] has minimum average
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 public class SubArraySizeKLeastAverage {
 

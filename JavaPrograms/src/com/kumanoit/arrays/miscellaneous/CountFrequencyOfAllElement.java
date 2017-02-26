@@ -1,6 +1,8 @@
 /**
  * Count frequencies of all elements in array in O(1) extra space and O(n) time
-Given an unsorted array of n integers which can contain integers from 1 to n. Some elements can be repeated multiple times and some other elements can be absent from the array. Count frequency of all elements that are present and print the missing elements.
+Given an unsorted array of n integers which can contain integers from 1 to n. 
+Some elements can be repeated multiple times and some other elements can be absent from the array. 
+Count frequency of all elements that are present and print the missing elements.
 
 Examples:
 
@@ -19,7 +21,7 @@ Output: Below are frequencies of all elements
         3 -> 0
         4 -> 4
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

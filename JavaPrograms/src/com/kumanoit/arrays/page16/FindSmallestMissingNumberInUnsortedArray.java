@@ -1,6 +1,6 @@
 package com.kumanoit.arrays.page16;
 
-import com.kumanoit.utils.arrays.ArrayUtility;
+import com.kumanoit.arrays.page18.SegregatePositiveNegativeNumbers;
 
 //http://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array/
 public class FindSmallestMissingNumberInUnsortedArray {
@@ -11,35 +11,8 @@ public class FindSmallestMissingNumberInUnsortedArray {
 		System.out.println(findMissingNumber(new int[] { 1, 1, 0, -1, -2 }));
 	}
 
-	private static int segregateNegativePositive(int[] array) {
-		int start = 0;
-		int end = array.length - 1;
-		ArrayUtility.printArray(array);
-
-		while (start < end) {
-			if (array[start] > 0) {
-				start++;
-			} else if (array[end] < 0) {
-				end--;
-			} else {
-				int temp = array[start];
-				array[start] = array[end];
-				array[end] = temp;
-				start++;
-				end--;
-			}
-		}
-		ArrayUtility.printArray(array);
-		if (array[end] < 0) {
-			return end - 1;
-		} else {
-			return end;
-		}
-
-	}
-
-	private static int findMissingNumber(int[] array) {
-		int lastPositiveIndex = segregateNegativePositive(array);
+	public static int findMissingNumber(int[] array) {
+		int lastPositiveIndex = SegregatePositiveNegativeNumbers.segregateNegativePositive(array);
 		int missingNumber = lastPositiveIndex + 1;
 		for (int i = 0; i <= lastPositiveIndex; i++) {
 			int newIndex = (array[i] < 0 ? -array[i] : array[i]) - 1;

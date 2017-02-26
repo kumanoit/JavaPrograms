@@ -1,7 +1,7 @@
 /**
  * Print all combinations of n number of parenthesis
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.Scanner;
 

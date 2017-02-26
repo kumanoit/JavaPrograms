@@ -1,6 +1,6 @@
 /**
  * Count all possible groups of size 2 or 3 that have sum as multiple of 3
-Given an unsorted integer (positive values only) array of size ‘n’, we can form a group of two or three, the group should be such that the sum of all elements in that group is a multiple of 3. Count all possible number of groups that can be generated in this way.
+Given an unsorted integer (positive values only) array of size ï¿½nï¿½, we can form a group of two or three, the group should be such that the sum of all elements in that group is a multiple of 3. Count all possible number of groups that can be generated in this way.
 
 Input: arr[] = {3, 6, 7, 2, 9}
 Output: 8
@@ -12,7 +12,7 @@ Input: arr[] = {2, 1, 3, 4}
 Output: 4
 // Groups are {2,1}, {2,4}, {2,1,3}, {2,4,3}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.common.CommonUtils;
 

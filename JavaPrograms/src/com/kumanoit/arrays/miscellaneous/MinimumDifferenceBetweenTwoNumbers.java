@@ -17,7 +17,7 @@ Input  : {1, 19, -4, 31, 38, 25, 100};
 Output : 5
 Minimum difference is between 1 and -4
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import java.util.Arrays;
 

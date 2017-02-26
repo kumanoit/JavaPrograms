@@ -11,7 +11,7 @@ We can 330 by rotating array 9 times.
 {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 0*1 + 1*2 + 2*3 ... 9*10 = 330
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 18, 2015

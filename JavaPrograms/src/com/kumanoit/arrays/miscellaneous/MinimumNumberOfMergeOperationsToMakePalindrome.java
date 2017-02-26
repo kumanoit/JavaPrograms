@@ -1,5 +1,9 @@
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
+/**
+ * http://www.geeksforgeeks.org/find-minimum-number-of-merge-operations-to-make-an-array-palindrome/
+ *
+ */
 public class MinimumNumberOfMergeOperationsToMakePalindrome {
 
 	public static void main(String[] args) {

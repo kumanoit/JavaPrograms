@@ -16,7 +16,7 @@ Input: {0, 1, 2, 6, 9}, n = 5, m = 10
 Output: 3
  */
 
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 public class FindSmallestMissingNumberInSortedArray {
 

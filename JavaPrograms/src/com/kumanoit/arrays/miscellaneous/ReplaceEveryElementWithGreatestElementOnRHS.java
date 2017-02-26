@@ -15,7 +15,7 @@ A tricky method is to replace all elements using one traversal of the array.
 The idea is to start from the rightmost element, move to the left side one by one, 
 and keep track of the maximum element. Replace every element with the maximum element.
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

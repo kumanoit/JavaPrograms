@@ -17,7 +17,7 @@ Output: 3
 Input: arr[] = {1, 1, 1, 1}
 Output: 0
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 public class NumberOfZeros {
 

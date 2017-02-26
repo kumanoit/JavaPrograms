@@ -12,7 +12,7 @@ Output: Length of the longest contiguous subarray is 2
 Input:  arr[] = {1, 56, 58, 57, 90, 92, 94, 93, 91, 45};
 Output: Length of the longest contiguous subarray is 5
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015

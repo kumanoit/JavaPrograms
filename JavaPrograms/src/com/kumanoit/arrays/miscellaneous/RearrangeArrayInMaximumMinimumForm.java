@@ -1,7 +1,8 @@
 /**
  * http://www.geeksforgeeks.org/rearrange-array-maximum-minimum-form/
 Rearrange an array in maximum minimum form
-Given a sorted array of positive integers, rearrange the array alternately i.e first element should be maximum value, second minimum value, third second max, fourth second min and so on.
+Given a sorted array of positive integers, rearrange the array alternately i.e first element should be maximum value, 
+second minimum value, third second max, fourth second min and so on.
 
 Examples:
 
@@ -11,7 +12,7 @@ Output : arr[] = {7, 1, 6, 2, 5, 3, 4}
 Input  : arr[] = {1, 2, 3, 4, 5, 6} 
 Output : arr[] = {6, 1, 5, 2, 4, 3}
  */
-package com.kumanoit.arrays;
+package com.kumanoit.arrays.miscellaneous;
 
 import com.kumanoit.utils.arrays.ArrayUtility;
 

@@ -69,22 +69,20 @@ public class Solution {
 		Queue<Integer> queue = new LinkedList<Integer>();
 		int level = 0;
 		queue.add(0);
-		if (n == 0) {
-			return 0;
-		}
-		while (true) {
+		while (!queue.isEmpty()) {
 			int size = queue.size();
 			level++;
 			while (size > 0) {
-				size--;
 				int pop = queue.remove();
-				if (pop + level == n || pop - level == n) {
-					return level;
+				if (pop == n) {
+					return level - 1;
 				}
 				queue.add(pop + level);
 				queue.add(pop - level);
+				size--;
 			}
 		}
+		return -1;
 	}
 
 	/**

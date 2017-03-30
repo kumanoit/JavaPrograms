@@ -69,10 +69,10 @@ public class Tree {
 	public String toString() {
 		StringBuilder sb = new StringBuilder(this.data + "");
 		if (this.leftChild != null) {
-			sb.append(this.leftChild.toString());
+			sb.append("," + this.leftChild.toString());
 		}
 		if (this.rightChild != null) {
-			sb.append(this.rightChild.toString());
+			sb.append("," + this.rightChild.toString() + ",");
 		}
 		return sb.toString();
 	}
@@ -100,5 +100,20 @@ public class Tree {
 	@Override
 	public boolean equals(Object object) {
 		return this.getData() == ((Tree) object).getData();
+	}
+
+	public void displayDoublyLinkedList() {
+		Tree ptr = this;
+		System.out.println("Forward >> ");
+		while (ptr.getRightChild() != null) {
+			System.out.print(ptr.getData() + ", ");
+			ptr = ptr.getRightChild();
+		}
+		System.out.println(ptr.getData());
+		System.out.println("Reverse << ");
+		while (ptr != null) {
+			System.out.print(ptr.getData() + ", ");
+			ptr = ptr.getLeftChild();
+		}
 	}
 }

@@ -275,4 +275,39 @@ public class Miscellaneous {
 		getMultiplicationOfLeavesAtSameLevel(root.getRightChild(), map, level + 1);
 	}
 
+	private static int minimumValue = Integer.MAX_VALUE;
+	private static int maximumValue = Integer.MIN_VALUE;
+	private static Tree maxBstRoot = null;
+	private static int maxBstSize = 0;
+
+	public static void findLargestBst(Tree root) {
+		findLargestBst(root, minimumValue, maximumValue);
+		System.out.println("Largest binary search tree size = " + maxBstSize);
+		System.out.println("Largest binary tree: ");
+		maxBstRoot.display();
+	}
+
+	private static int findLargestBst(Tree root, int minimum, int maximum) {
+		if (root == null) {
+			return 0;
+		}
+		int minLeft = Integer.MAX_VALUE;
+		int maxRight = Integer.MIN_VALUE;
+		int left = findLargestBst(root.getLeftChild(), minLeft, maximum);
+		int right = findLargestBst(root.getRightChild(), minimum, maxRight);
+		if (root.getData() < minimum) {
+			minimum = root.getData();
+		}
+		if (root.getData() > maximum) {
+			maximum = root.getData();
+		}
+		if (minLeft >= root.getData() || maxRight <= root.getData()) {
+			return 1;
+		}
+		if (maxBstSize < left + right + 1) {
+			maxBstSize = left + right + 1;
+			maxBstRoot = root;
+		}
+		return left + right + 1;
+	}
 }

@@ -6,7 +6,7 @@ import com.kumanoit.utils.arrays.ArrayUtility;
 public class Permutation {
 
 	public static void main(String[] args) {
-		String string = new String("AB");
+		String string = new String("ahmpabja");
 //		printAllPermutation(string.toCharArray(), 0);
 		printAllPermutationsWithRepetition(string.toCharArray(), string.length(), new char[string.length()], 0);
 //		allLexicographicRecur(string.toCharArray(), new char[string.length()], string.length() - 1, 0);

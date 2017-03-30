@@ -1,20 +1,65 @@
 package com.kumanoit.main;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.Stack;
+
+import com.kumanoit.strings.Permutation;
+import com.kumanoit.trees.TreeSamples;
+import com.kumanoit.trees.utils.Tree;
 
 public class DummyClass {
 
 	public static void main(String[] args) {
+		printNodesVertically(TreeSamples.root1);
+	}
+
+	public static void printNodesVertically(Tree root) {
+		if (root == null) {
+			return;
+		}
+		TreeMap<Integer, TreeMap<Integer, ArrayList<Tree>>> map = new TreeMap<Integer, TreeMap<Integer, ArrayList<Tree>>>();
+		printNodesVertically(root, 0, 0, map);
+		map.forEach((k, v) -> {
+			System.out.println("\nAt width " + k);
+			v.forEach((key, value1) -> {
+				value1.forEach(item -> System.out.print(item.getData() + ", "));
+			});
+		});
+	}
+
+	private static void printNodesVertically(Tree root, int width, int height,
+			TreeMap<Integer, TreeMap<Integer, ArrayList<Tree>>> map) {
+		if (root == null) {
+			return;
+		}
+		if (!map.keySet().contains(width)) {
+			ArrayList<Tree> list = new ArrayList<Tree>();
+			list.add(root);
+			TreeMap<Integer, ArrayList<Tree>> nodesAtHeight = new TreeMap<Integer, ArrayList<Tree>>();
+			nodesAtHeight.put(height, list);
+			map.put(width, nodesAtHeight);
+		} else {
+			if (!map.get(width).keySet().contains(height)) {
+				ArrayList<Tree> list = new ArrayList<Tree>();
+				list.add(root);
+				map.get(width).put(height, list);
+			} else {
+				List<Tree> list = map.get(width).get(height);
+				list.add(root);
+			}
+		}
+		printNodesVertically(root.getLeftChild(), width - 1, height + 1, map);
+		printNodesVertically(root.getRightChild(), width + 1, height + 1, map);
+	}
+
+	private static void detectDeadlockfun() {
 		Stack stack = new Stack();
-		
-		int[][] matrix = { 
-				{ 0, 0, 0, 0, 1, 0 }, 
-				{ 0, 0, 0, 0, 0, 1 }, 
-				{ 0, 0, 0, 0, 0, 0 }, 
-				{ 0, 0, 0, 0, 0, 0 },
-				{ 0, 1, 1, 0, 0, 0 }, 
-				{ 1, 0, 0, 1, 0, 0 } 
-		};
+
+		int[][] matrix = { { 0, 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 0, 1 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 },
+				{ 0, 1, 1, 0, 0, 0 }, { 1, 0, 0, 1, 0, 0 } };
 		int[] resourceInstance = { 2, 2 };
 		detectDeadlock(matrix, resourceInstance, 4, 2);
 	}

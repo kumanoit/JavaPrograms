@@ -1,9 +1,9 @@
 /**
  * Ugly Numbers
 Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence
-1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, …
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15,
 shows the first 11 ugly numbers. By convention, 1 is included.
-Write a program to find and print the 150’th ugly number.
+Write a program to find and print the 150th ugly number.
  */
 
 package com.kumanoit.dynamicProgramming;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class UglyNumbers {
 
     public static void main(String[] args) {
-        int n = 1000;
+        int n = 10;
         System.out.println(getNthUglyNumber(n));
         System.out.println(getNthUglyNumberDP(n));
     }

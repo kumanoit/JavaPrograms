@@ -5,11 +5,11 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/write-a-function-to-reverse-the-nodes-of-a-linked-list/
 	 */
-	public static MyList reverse(MyList start) {
+	public static LinkList reverse(LinkList start) {
 		if (start == null || start.getNextNode() == null) {
 			return start;
 		}
-		MyList temp = reverse(start.getNextNode());
+		LinkList temp = reverse(start.getNextNode());
 		start.getNextNode().setNextNode(start);
 		start.setNextNode(null);
 		return temp;
@@ -18,20 +18,20 @@ public class Solution {
 	/**
 	 * reverse linked list in groups
 	 */
-	public static MyList reverseInGroupOfK(MyList start, int k) {
+	public static LinkList reverseInGroupOfK(LinkList start, int k) {
 		if (start == null || start.getNextNode() == null) {
 			return start;
 		}
 
-		MyList ptr = start;
+		LinkList ptr = start;
 		int temp = k;
 		while (--temp != 0 && ptr.getNextNode() != null) {
 			ptr = ptr.getNextNode();
 		}
 
-		MyList nextStart = ptr.getNextNode();
+		LinkList nextStart = ptr.getNextNode();
 		ptr.setNextNode(null);
-		MyList newStart = reverse(start);
+		LinkList newStart = reverse(start);
 		start.setNextNode(reverseInGroupOfK(nextStart, k));
 		return newStart;
 	}
@@ -39,11 +39,11 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
 	 */
-	public static MyList getNthNodeFromBeginning(MyList start, int n) {
+	public static LinkList getNthNodeFromBeginning(LinkList start, int n) {
 		if (start == null) {
 			return start;
 		}
-		MyList ptr = start;
+		LinkList ptr = start;
 		while (--n > 0) {
 			ptr = ptr.getNextNode();
 		}
@@ -53,9 +53,9 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/
 	 */
-	public static MyList getMiddleOfList(MyList start) {
-		MyList slow = start;
-		MyList fast = start;
+	public static LinkList getMiddleOfList(LinkList start) {
+		LinkList slow = start;
+		LinkList fast = start;
 		while (fast != null && fast.getNextNode() != null && fast.getNextNode().getNextNode() != null) {
 			slow = slow.getNextNode();
 			fast = fast.getNextNode().getNextNode();
@@ -66,9 +66,9 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/write-a-function-that-counts-the-number-of-times-a-given-int-occurs-in-a-linked-list/
 	 */
-	public static int getOccurrenceCount(MyList start, int data) {
+	public static int getOccurrenceCount(LinkList start, int data) {
 		int count = 0;
-		MyList ptr = start;
+		LinkList ptr = start;
 		while (ptr != null) {
 			if (ptr.getData() == data) {
 				count++;
@@ -81,11 +81,11 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
 	 */
-	public static MyList pairwiseSwap(MyList start) {
+	public static LinkList pairwiseSwap(LinkList start) {
 		if (start == null || start.getNextNode() == null) {
 			return start;
 		}
-		MyList nextNode = start.getNextNode();
+		LinkList nextNode = start.getNextNode();
 		start.setNextNode(pairwiseSwap(nextNode.getNextNode()));
 		nextNode.setNextNode(start);
 		return nextNode;
@@ -94,11 +94,11 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/move-last-element-to-front-of-a-given-linked-list/
 	 */
-	public static MyList moveLastElementToFront(MyList start) {
+	public static LinkList moveLastElementToFront(LinkList start) {
 		if (start == null || start.getNextNode() == null) {
 			return start;
 		}
-		MyList ptr = start;
+		LinkList ptr = start;
 		while (ptr.getNextNode().getNextNode() != null) {
 			ptr = ptr.getNextNode();
 		}
@@ -111,13 +111,13 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
 	 */
-	public static void removeDuplicatesFromSortedLinkedList(MyList start) {
+	public static void removeDuplicatesFromSortedLinkedList(LinkList start) {
 		if (start == null && start.getNextNode() == null) {
 			return;
 		}
-		MyList ptr = start;
+		LinkList ptr = start;
 		while (ptr != null) {
-			MyList nextNode = ptr.getNextNode();
+			LinkList nextNode = ptr.getNextNode();
 			while (nextNode != null && nextNode.getData() == ptr.getData()) {
 				nextNode = nextNode.getNextNode();
 			}
@@ -129,7 +129,7 @@ public class Solution {
 	/**
 	 * http://www.geeksforgeeks.org/write-a-recursive-function-to-print-reverse-of-a-linked-list/
 	 */
-	public static void displayReverseRecursively(MyList start) {
+	public static void displayReverseRecursively(LinkList start) {
 		if (start == null) {
 			return;
 		}

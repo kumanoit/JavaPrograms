@@ -1,11 +1,11 @@
 package com.kumanoit.linkedlist;
 
-public class MyList {
+public class LinkList {
 
 	private int data;
-	private MyList nextNode;
+	private LinkList nextNode;
 
-	public MyList(int data) {
+	public LinkList(int data) {
 		this.data = data;
 		this.nextNode = null;
 	}
@@ -18,16 +18,16 @@ public class MyList {
 		this.data = data;
 	}
 
-	public MyList getNextNode() {
+	public LinkList getNextNode() {
 		return nextNode;
 	}
 
-	public void setNextNode(MyList nextNode) {
+	public void setNextNode(LinkList nextNode) {
 		this.nextNode = nextNode;
 	}
 
-	public MyList getLastNode() {
-		MyList ptr = this;
+	public LinkList getLastNode() {
+		LinkList ptr = this;
 		while (ptr.getNextNode() != null) {
 			ptr = ptr.getNextNode();
 		}
@@ -35,7 +35,7 @@ public class MyList {
 	}
 
 	public void display() {
-		MyList start = this;
+		LinkList start = this;
 		System.out.println("Here is the linked list");
 		while (start != null) {
 			System.out.print(start.getData() + "\t");
@@ -44,4 +44,11 @@ public class MyList {
 		System.out.println();
 	}
 
+	@Override
+	public String toString() {
+		if (this.getNextNode() != null) {
+			return this.getData() + "\t" + this.getNextNode().toString();
+		}
+		return this.getData() + "";
+	}
 }

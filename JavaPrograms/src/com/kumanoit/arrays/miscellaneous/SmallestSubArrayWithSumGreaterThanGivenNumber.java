@@ -24,15 +24,23 @@ package com.kumanoit.arrays.miscellaneous;
 
 /**
  * @author kumanoit Dec 19, 2015
- * SmallestSubArrayWithSumGreaterThanGivenNumber.java
+ *         SmallestSubArrayWithSumGreaterThanGivenNumber.java
  */
 public class SmallestSubArrayWithSumGreaterThanGivenNumber {
 
 	public static void main(String[] args) {
-		int[] array = {1, 11, 100, 1, 0, 200, 3, 2, 1, 250};//{1, 4, 45, 6, 0, 19};
-		int x = 280;//51;
+		int[] array = { 1, 11, 100, 1, 0, 200, 3, 2, 1, 250 };// {1, 4, 45, 6, 0,
+																													// 19};
+		int x = 500;// 51;
 		getSmallestSubarray(array, x);
-		getSmallest(array, x);
+		// getSmallest(array, x);
+		getSolution(array, x);
+		getSolution(array, 456);
+		getSolution(array, 455);
+		getSolution(array, 457);
+		getSolution(array, 569);
+		getSolution(array, 568);
+		getSolution(array, 570);
 	}
 
 	private static void getSmallestSubarray(int[] array, int x) {
@@ -102,6 +110,49 @@ public class SmallestSubArrayWithSumGreaterThanGivenNumber {
 		for (int i = start_index; i <= end_index; i++) {
 			System.out.print(array[i] + "  ");
 		}
+	}
 
+	private static void getSolution(int[] array, int sum) {
+		int start = 0;
+		int end = 0;
+		int total = 0;
+		int startIndex = -1;
+		int endIndex = -1;
+		int minLength = array.length + 1;
+		System.out.println("\n\nFor sum = " + sum);
+		while (end < array.length) {
+			while (end < array.length && total <= sum) {
+				if (array[end] > sum) {
+					startIndex = end;
+					endIndex = end;
+					minLength = 1;
+					printSolution(array, startIndex, endIndex, minLength);
+					return;
+				}
+				total += array[end++];
+			}
+			while (start < end && total > sum) {
+				total -= array[start++];
+			}
+			if (total <= sum && start > 0 && total + array[start - 1] > sum) {
+				if (minLength > end - start + 1) {
+					minLength = end - start + 1;
+					startIndex = start - 1;
+					endIndex = end - 1;
+				}
+			}
+			printSolution(array, startIndex, endIndex, minLength);
+		}
+	}
+
+	private static void printSolution(int[] array, int startIndex, int endIndex, int minLength) {
+		if (startIndex == -1) {
+			System.out.println("No solution exist");
+			return;
+		}
+		System.out.println("Minimum length = " + minLength);
+		for (int i = startIndex; i <= endIndex; i++) {
+			System.out.print(array[i] + ", ");
+		}
 	}
 }

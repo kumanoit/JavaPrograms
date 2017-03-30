@@ -16,12 +16,13 @@ import java.util.Optional;
 import java.util.Queue;
 import java.util.Set;
 
+import com.kumanoit.trees.Pair;
 import com.kumanoit.trees.utils.Tree;
 
 public class Solution {
 
 	/**
-	 * http://www.geeksforgeeks.org/print-nodes-binary-tree-k-leaves/
+	 * 1. http://www.geeksforgeeks.org/print-nodes-binary-tree-k-leaves/
 	 */
 	public static List<Tree> getAllNodesWithKLeafNodes(Tree root, int k) {
 		List<Tree> solution = new ArrayList<Tree>();
@@ -45,7 +46,7 @@ public class Solution {
 	}
 
 	/**
-	 * http://www.geeksforgeeks.org/maximum-sum-nodes-binary-tree-no-two-adjacent/
+	 * 2. http://www.geeksforgeeks.org/maximum-sum-nodes-binary-tree-no-two-adjacent/
 	 */
 	public static int getMaximumSumWrapper(Tree root) {
 		Pair max = getMaximumSum(root);
@@ -67,7 +68,7 @@ public class Solution {
 	}
 
 	/**
-	 * http://www.geeksforgeeks.org/find-level-maximum-sum-binary-tree/
+	 * 3. http://www.geeksforgeeks.org/find-level-maximum-sum-binary-tree/
 	 */
 	public static int getLevelWithMaximumSum(Tree root) {
 		if (root == null) {
@@ -219,13 +220,16 @@ public class Solution {
 		if (root == null) {
 			return false;
 		}
-		boolean isPP = false;
-		if (root.getData() == array[level]) {
-			isPP = isPathPresent(root.getLeftChild(), level + 1, array)
-					|| isPathPresent(root.getRightChild(), level + 1, array);
+		if (root.getData() != array[level]) {
+			return false;
 		}
-		return isPP || isPathPresent(root.getLeftChild(), level, array)
-				|| isPathPresent(root.getRightChild(), level, array);
+//		boolean isPP = false;
+//		if (root.getData() == array[level]) {
+//			isPP = isPathPresent(root.getLeftChild(), level + 1, array)
+//					|| isPathPresent(root.getRightChild(), level + 1, array);
+//		}
+		return isPathPresent(root.getLeftChild(), level + 1, array)
+				|| isPathPresent(root.getRightChild(), level + 1, array);
 	}
 
 	/**
@@ -258,27 +262,4 @@ public class Solution {
 		}
 	}
 
-}
-
-class Pair {
-	int inclusive;
-	int exclusive;
-
-	public Pair(int inclusive, int exclusive) {
-		this.inclusive = inclusive;
-		this.exclusive = exclusive;
-	}
-
-	public int getInclusive() {
-		return inclusive;
-	}
-
-	public int getExclusive() {
-		return exclusive;
-	}
-
-	@Override
-	public String toString() {
-		return "(" + inclusive + "," + exclusive + ")";
-	}
 }

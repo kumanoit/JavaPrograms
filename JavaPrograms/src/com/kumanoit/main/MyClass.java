@@ -1,10 +1,12 @@
 package com.kumanoit.main;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.kumanoit.generics.trees.Problems;
 import com.kumanoit.generics.utils.trees.TreeNode;
 import com.kumanoit.generics.utils.trees.TreeUtility;
+import com.kumanoit.trees.utils.Tree;
 
 public class MyClass {
 
@@ -116,10 +118,25 @@ public class MyClass {
   }
 
   public static void main(String[] args) {
+  	String str = "-5r4c4";
+  	String[] parts = str.split("\\p{Alpha}");
+  	for (String part : parts) {
+  		System.out.println(part);
+  	}
+  	
+  	
+//  	List<Tree> nodes = new ArrayList<Tree>();
+//  	Tree node1 = new Tree(1);
+//  	Tree node2 = new Tree(2);
+//  	Tree node3 = new Tree(3);
+//  	nodes.add(0, node1);
+//  	System.out.println(nodes.get(0).getData());
+//  	nodes.set(0, node3);
+//  	System.out.println(nodes.get(0).getData());
 //	  intRoot1.display();
 //	  constructTreePreOrderInOrder();
-	  char[] m = new char[30];
-	  System.out.println(m.length);
+//	  char[] m = new char[30];
+//	  System.out.println(m.length);
 //	  StringBuilder string = new StringBuilder();
 //	  for (int beg = 0, end = string.length(); beg < end; beg++, end--) {
 //		  char ch = string.charAt(beg);

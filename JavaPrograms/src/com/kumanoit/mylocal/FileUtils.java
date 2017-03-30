@@ -33,13 +33,21 @@ public class FileUtils {
 	}
 
 	public static void main(String[] args) {
-		String dir = "/Users/kuma/Documents/kumanoit/Personal/Documents/folder/Whatsapp/videos";
+		String dir = "/Users/kuma/Documents/kumanoit/Personal/Documents/folder";
 		if (dir.charAt(dir.length() - 1) != '/') {
 			dir = dir + "/";
 		}
-		String oldPattern = "VIDEO";
+		String oldPattern = "3gp";
 		String newPrefix = "Rdata";
-		String newSuffix = ".rds";
-		renameFiles(dir, oldPattern, newPrefix, newSuffix);
+		String newSuffix = ".rdata";
+		renameFiles(dir, "Screen", newPrefix, newSuffix);
+		renameFiles(dir, "3gp", newPrefix, newSuffix);
+		renameFiles(dir, "IMG_", newPrefix, newSuffix);
+		renameFiles(dir, "pdf", newPrefix, newSuffix);
+		renameFiles(dir, "PNG", newPrefix, newSuffix);
+		renameFiles(dir, "jpg", newPrefix, newSuffix);
+		renameFiles(dir, "JPG", newPrefix, newSuffix);
+		renameFiles(dir, "3gp", newPrefix, newSuffix);
+		renameFiles(dir, "mp4", newPrefix, newSuffix);
 	}
 }

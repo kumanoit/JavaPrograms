@@ -2,7 +2,7 @@
  * Dynamic Programming | Set 7 (Coin Change)
 Given a value N, if we want to make change for N cents,
  and we have infinite supply of each of S = { S1, S2, .. , Sm} valued coins,
-  how many ways can we make the change? The order of coins doesn’t matter.
+  how many ways can we make the change? The order of coins doesnï¿½t matter.
 
 For example, for N = 4 and S = {1,2,3}, there are four solutions:
  {1,1,1,1},{1,1,2},{2,2},{1,3}. So output should be 4. For N = 10 and 
@@ -18,7 +18,7 @@ public class CoinChangeRepeatedUsage {
 
 	public static void main(String[] args) {
 		int amount = 10;// 4;
-		int[] denomination = {2, 5, 3, 6};// {1, 2, 3};
+		int[] denomination = { 2 };// {1, 2, 3};
 		int n = denomination.length;
 		System.out.println("Normal : " + getTotalWaysToChangeCoin(amount, denomination, n));
 		System.out.println("Via DP : " + getTotalWaysDP(amount, denomination, n));
@@ -34,16 +34,16 @@ public class CoinChangeRepeatedUsage {
 		if (amount < denomination[n - 1]) {
 			return getTotalWaysToChangeCoin(amount, denomination, n - 1);
 		}
-		return getTotalWaysToChangeCoin(amount, denomination, n - 1) +
-				getTotalWaysToChangeCoin(amount - denomination[n - 1], denomination, n);
+		return getTotalWaysToChangeCoin(amount, denomination, n - 1)
+				+ getTotalWaysToChangeCoin(amount - denomination[n - 1], denomination, n);
 	}
 
 	private static int getTotalWaysDP(int amount, int[] denomination, int n) {
 		int[][] table = new int[amount + 1][n + 1];
-		for(int i = 0; i <= n; i++) {
+		for (int i = 0; i <= n; i++) {
 			table[0][i] = 1; // Very important
 		}
-		for (int i = 0; i <= amount; i++) {
+		for (int i = 1; i <= amount; i++) {
 			table[i][0] = 0;
 		}
 		for (int i = 1; i <= amount; i++) {
@@ -55,7 +55,7 @@ public class CoinChangeRepeatedUsage {
 				}
 			}
 		}
-//		ArrayUtility.printMatrix(table);
+		// ArrayUtility.printMatrix(table);
 		return table[amount][n];
 	}
 }

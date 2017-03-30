@@ -132,6 +132,7 @@ public class TreeTraversal {
 		printInorder(root);
 		System.out.print("\nLevelorder :   ");
 		printLevelOrder(root);
+		System.out.println();
 	}
 
 	public static void printPreorderWithoutRecursion(Tree root) {

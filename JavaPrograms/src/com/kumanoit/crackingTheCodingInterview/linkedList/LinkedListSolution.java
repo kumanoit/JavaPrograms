@@ -1,6 +1,6 @@
 package com.kumanoit.crackingTheCodingInterview.linkedList;
 
-import com.kumanoit.linkedlist.MyList;
+import com.kumanoit.linkedlist.LinkList;
 
 public class LinkedListSolution {
 	/**
@@ -9,13 +9,13 @@ public class LinkedListSolution {
 	 * not allowed?
 	 * http://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/
 	 */
-	public static void removeDuplicates(MyList start) {
+	public static void removeDuplicates(LinkList start) {
 		if (start == null || start.getNextNode() == null) {
 			return;
 		}
-		for (MyList p = start; p.getNextNode() != null; p = p.getNextNode()) {
-			for (MyList q = p; q.getNextNode() != null;) {
-				MyList nextNode = q.getNextNode();
+		for (LinkList p = start; p.getNextNode() != null; p = p.getNextNode()) {
+			for (LinkList q = p; q.getNextNode() != null;) {
+				LinkList nextNode = q.getNextNode();
 				if (nextNode.getData() == p.getData()) {
 					q.setNextNode(nextNode.getNextNode());
 					nextNode = null;
@@ -35,12 +35,12 @@ public class LinkedListSolution {
 	 * 
 	 * http://www.geeksforgeeks.org/nth-node-from-the-end-of-a-linked-list/
 	 */
-	public static MyList getKthLastElement(MyList start, int k) throws NullPointerException {
+	public static LinkList getKthLastElement(LinkList start, int k) throws NullPointerException {
 		if (start == null) {
 			return start;
 		}
-		MyList slow = start;
-		MyList fast = start;
+		LinkList slow = start;
+		LinkList fast = start;
 		while (--k > 0 && fast != null) {
 			fast = fast.getNextNode();
 		}
@@ -64,11 +64,11 @@ public class LinkedListSolution {
 	 * http://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/
 	 * http://www.geeksforgeeks.org/in-a-linked-list-given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/
 	 */
-	public static void deleteANodeFromMiddle(MyList nodeToBeDeleted) {
+	public static void deleteANodeFromMiddle(LinkList nodeToBeDeleted) {
 		if (nodeToBeDeleted == null || nodeToBeDeleted.getNextNode() == null) {
 			return;
 		}
-		MyList nextNode = nodeToBeDeleted.getNextNode();
+		LinkList nextNode = nodeToBeDeleted.getNextNode();
 		nodeToBeDeleted.setData(nextNode.getData());
 		nodeToBeDeleted.setNextNode(nextNode.getNextNode());
 		nextNode = null;
@@ -83,30 +83,30 @@ public class LinkedListSolution {
 	 * left and right partitions. EXAMPLE Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1
 	 * [partition= 5] Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 	 */
-	public static void partitionListAroundK(MyList start, int k) {
+	public static void partitionListAroundK(LinkList start, int k) {
 		if (start == null || start.getNextNode() == null) {
 			return;
 		}
-		MyList start1 = null;
-		MyList p1 = null;
-		MyList start2 = null;
-		MyList p2 = null;
-		MyList ptr = start;
+		LinkList start1 = null;
+		LinkList p1 = null;
+		LinkList start2 = null;
+		LinkList p2 = null;
+		LinkList ptr = start;
 		while (ptr != null) {
 			if (ptr.getData() < k) {
 				if (start1 == null) {
-					start1 = new MyList(ptr.getData());
+					start1 = new LinkList(ptr.getData());
 					p1 = start1;
 				} else {
-					p1.setNextNode(new MyList(ptr.getData()));
+					p1.setNextNode(new LinkList(ptr.getData()));
 					p1 = p1.getNextNode();
 				}
 			} else {
 				if (start2 == null) {
-					start2 = new MyList(ptr.getData());
+					start2 = new LinkList(ptr.getData());
 					p2 = start2;
 				} else {
-					p2.setNextNode(new MyList(ptr.getData()));
+					p2.setNextNode(new LinkList(ptr.getData()));
 					p2 = p2.getNextNode();
 				}
 			}
@@ -127,20 +127,20 @@ public class LinkedListSolution {
 	 * the above problem. EXAMPLE lnput:(6 -> 1 -> 7) + (2 -> 9 -> 5).That is,617
 	 * + 295. Output: 9 - > 1 -> 2. That is, 912.
 	 */
-	public static MyList addTwoNumbersRecursive(MyList start1, MyList start2) {
+	public static LinkList addTwoNumbersRecursive(LinkList start1, LinkList start2) {
 		return addTwoNumbersRecursive(start1, start2, 0);
 	}
 
-	public static MyList addTwoNumbersRecursive(MyList start1, MyList start2, int carry) {
+	public static LinkList addTwoNumbersRecursive(LinkList start1, LinkList start2, int carry) {
 		if (start1 == null && start2 == null) {
-			return carry > 0 ? (new MyList(carry)) : null;
+			return carry > 0 ? (new LinkList(carry)) : null;
 		}
 		int value1 = start1 == null ? 0 : start1.getData();
 		int value2 = start2 == null ? 0 : start2.getData();
 		int sum = value1 + value2 + carry;
 		carry = sum / 10;
 		sum %= 10;
-		MyList newNode = new MyList(sum);
+		LinkList newNode = new LinkList(sum);
 		if (start1 != null && start2 != null) {
 			newNode.setNextNode(addTwoNumbersRecursive(start1.getNextNode(), start2.getNextNode(), carry));
 		} else if (start1 == null) {
@@ -151,14 +151,14 @@ public class LinkedListSolution {
 		return newNode;
 	}
 
-	public static MyList addTwoNumbersIterative(MyList start1, MyList start2) {
+	public static LinkList addTwoNumbersIterative(LinkList start1, LinkList start2) {
 		if (start1 == null && start2 == null) {
 			return null;
 		}
-		MyList sumList = null;
-		MyList ptr = null;
-		MyList ptr1 = start1;
-		MyList ptr2 = start2;
+		LinkList sumList = null;
+		LinkList ptr = null;
+		LinkList ptr1 = start1;
+		LinkList ptr2 = start2;
 		int carry = 0;
 		int sum = 0;
 		while (ptr1 != null && ptr2 != null) {
@@ -166,10 +166,10 @@ public class LinkedListSolution {
 			carry = sum / 10;
 			sum %= 10;
 			if (sumList == null) {
-				sumList = new MyList(sum);
+				sumList = new LinkList(sum);
 				ptr = sumList;
 			} else {
-				ptr.setNextNode(new MyList(sum));
+				ptr.setNextNode(new LinkList(sum));
 				ptr = ptr.getNextNode();
 			}
 			ptr1 = ptr1.getNextNode();
@@ -180,10 +180,10 @@ public class LinkedListSolution {
 			carry = sum / 10;
 			sum %= 10;
 			if (sumList == null) {
-				sumList = new MyList(sum);
+				sumList = new LinkList(sum);
 				ptr = sumList;
 			} else {
-				ptr.setNextNode(new MyList(sum));
+				ptr.setNextNode(new LinkList(sum));
 				ptr = ptr.getNextNode();
 			}
 			ptr1 = ptr1.getNextNode();
@@ -193,16 +193,16 @@ public class LinkedListSolution {
 			carry = sum / 10;
 			sum %= 10;
 			if (sumList == null) {
-				sumList = new MyList(sum);
+				sumList = new LinkList(sum);
 				ptr = sumList;
 			} else {
-				ptr.setNextNode(new MyList(sum));
+				ptr.setNextNode(new LinkList(sum));
 				ptr = ptr.getNextNode();
 			}
 			ptr2 = ptr2.getNextNode();
 		}
 		if (carry > 0) {
-			ptr.setNextNode(new MyList(carry));
+			ptr.setNextNode(new LinkList(carry));
 		}
 		return sumList;
 	}
@@ -213,14 +213,14 @@ public class LinkedListSolution {
 	 * 
 	 * http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
 	 */
-	static MyList last;
+	static LinkList last;
 
-	public static boolean isLinkedListPalindrom(MyList start) {
+	public static boolean isLinkedListPalindrom(LinkList start) {
 		last = start;
 		return isLinkedListPalindrome(start);
 	}
 
-	private static boolean isLinkedListPalindrome(MyList start) {
+	private static boolean isLinkedListPalindrome(LinkList start) {
 		if (start == null) {
 			return true;
 		}
@@ -243,9 +243,9 @@ public class LinkedListSolution {
 	/**
 	 * O(n^2) solution
 	 */
-	public static MyList getIntersectionOfTwoLinkedList(MyList start1, MyList start2) {
-		for (MyList p = start1; p != null; p = p.getNextNode()) {
-			for (MyList q = start2; q != null; q = q.getNextNode()) {
+	public static LinkList getIntersectionOfTwoLinkedList(LinkList start1, LinkList start2) {
+		for (LinkList p = start1; p != null; p = p.getNextNode()) {
+			for (LinkList q = start2; q != null; q = q.getNextNode()) {
 				if (p == q) {
 					return p;
 				}
@@ -257,8 +257,8 @@ public class LinkedListSolution {
 	/**
 	 * O(n) solution
 	 */
-	public static MyList getIntersectionOfTwoLinkedList2(MyList start1, MyList start2) {
-		MyList lastNode = start1.getLastNode();
+	public static LinkList getIntersectionOfTwoLinkedList2(LinkList start1, LinkList start2) {
+		LinkList lastNode = start1.getLastNode();
 		lastNode.setNextNode(start2);
 		return detectLoop(start1);
 	}
@@ -272,12 +272,12 @@ public class LinkedListSolution {
 	 * 
 	 * http://www.geeksforgeeks.org/write-a-c-function-to-detect-loop-in-a-linked-list/
 	 */
-	public static MyList detectLoop(MyList start) {
+	public static LinkList detectLoop(LinkList start) {
 		if (start == null || start.getNextNode() == null) {
 			return null;
 		}
-		MyList slow = start;
-		MyList fast = start;
+		LinkList slow = start;
+		LinkList fast = start;
 		while (fast.getNextNode() != null && fast.getNextNode().getNextNode() != null) {
 			slow = slow.getNextNode();
 			fast = fast.getNextNode().getNextNode();
